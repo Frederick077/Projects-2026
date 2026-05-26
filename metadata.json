@@ -1,0 +1,6 @@
+{
+  "name": "Chaka Safaris & Hiking",
+  "description": "Premium safari tours, Kilimanjaro climbing, hiking, wildlife adventures, waterfalls, and cultural day trips in Arusha, Tanzania.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

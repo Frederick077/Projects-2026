@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  /* Custom African Safari palette colors */
+  --color-primary: #1F4D3A; /* Dark Green */
+  --color-secondary: #C9A227; /* Safari Gold */
+  --color-accent: #C96B2C; /* Burnt Orange */
+  --color-sand: #F5F1E8; /* Sand/Beige */
+  --color-charcoal: #2B2B2B; /* Charcoal dark */
+}
+
+@layer utilities {
+  .bg-radial {
+    background-image: radial-gradient(var(--tw-gradient-stops));
+  }
+}
+
+@keyframes pulse-slow {
+  0%, 100% {
+    opacity: 0.95;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.85;
+    transform: scale(1.03);
+  }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+html {
+  scroll-behavior: smooth;
+}

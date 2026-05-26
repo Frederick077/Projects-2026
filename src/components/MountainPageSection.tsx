@@ -1,0 +1,335 @@
+/**
+ * @license
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+import React from 'react';
+import { MapPin, CheckCircle, Flame, Star, Compass, ArrowRight, CornerDownRight } from 'lucide-react';
+import { motion } from 'motion/react';
+
+// Custom clean WhatsApp icon SVG
+const WhatsAppIcon = ({ className = "w-4 h-4" }: { className?: string }) => (
+  <svg 
+    className={className} 
+    viewBox="0 0 24 24" 
+    fill="currentColor"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.746.953 3.71 1.455 5.703 1.456h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+  </svg>
+);
+
+interface MountainPageSectionProps {
+  onOpenBooking?: (packageType: string, packageName: string) => void;
+}
+
+export default function MountainPageSection({ onOpenBooking }: MountainPageSectionProps) {
+  return (
+    <div id="mountain-page" className="scroll-mt-20">
+      
+      {/* HEADER SECTION */}
+      <div className="relative bg-[#1F4D3A] text-white py-16 sm:py-20 overflow-hidden rounded-b-3xl shadow-lg border-b border-stone-200/10">
+        <div className="absolute inset-0 z-0">
+          <img
+            src="https://images.unsplash.com/photo-1589553460730-dfbeb39ef32e?w=1920&auto=format&fit=crop&q=85"
+            alt="Majestic high altitude mountains"
+            className="w-full h-full object-cover opacity-25 filter grayscale-[20%]"
+            referrerPolicy="no-referrer"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-stone-900/95 via-[#1F4D3A]/90 to-[#1F4D3A]" />
+        </div>
+
+        <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center">
+          <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md rounded-full px-4 py-1.5 border border-white/20 shadow-md mb-4">
+            <Compass className="w-4 h-4 text-[#C9A227]" />
+            <span className="font-mono text-[10px] text-[#F5F1E8] font-bold uppercase tracking-widest">
+              Tanzania Peaks & Trails
+            </span>
+          </div>
+
+          <h1 className="font-serif text-3xl sm:text-5xl font-bold text-[#F5F1E8] tracking-tight leading-none mb-3">
+            Mountain Experiences
+          </h1>
+          <p className="text-stone-300 text-sm sm:text-base font-mono uppercase tracking-widest max-w-xl text-center">
+            Mount Kilimanjaro • Mount Meru • Day Hikes
+          </p>
+        </div>
+      </div>
+
+      {/* CORE MOUNTAIN CONTENT */}
+      <section className="py-16 bg-[#F5F1E8] text-[#2B2B2B]">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+          
+          {/* SECTION 1: MOUNT KILIMANJARO CLIMBING */}
+          <motion.div 
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="bg-white rounded-2xl border border-stone-200 shadow-sm p-6 sm:p-8 hover:shadow-md transition-all"
+          >
+            <div className="flex flex-wrap items-center justify-between gap-4 border-b border-stone-100 pb-5 mb-6">
+              <div className="flex items-center gap-3">
+                <span className="text-3xl sm:text-4xl">🌄</span>
+                <div>
+                  <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#1F4D3A]">
+                    Mount Kilimanjaro Climbing
+                  </h2>
+                  <div className="flex items-center gap-1 text-xs text-stone-500 font-mono mt-0.5">
+                    <MapPin className="w-3.5 h-3.5 text-[#C96B2C]" />
+                    <span>Location: Mount Kilimanjaro</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Overview */}
+            <div className="space-y-2 mb-6">
+              <span className="block text-stone-400 font-mono text-[10px] uppercase tracking-wider font-bold">
+                Overview
+              </span>
+              <p className="text-[#2B2B2B]/95 text-base leading-relaxed">
+                Climb the highest mountain in Africa and experience one of the world’s most iconic adventures. Our professional team will guide you safely to the summit.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {/* Routes */}
+              <div>
+                <span className="block text-stone-400 font-mono text-[10px] uppercase tracking-wider font-bold mb-3">
+                  Routes Available
+                </span>
+                <ul className="space-y-3">
+                  <li className="flex items-center justify-between p-3 rounded-lg bg-stone-55/40 border border-stone-100 text-sm font-semibold text-[#1F4D3A]">
+                    <span className="flex items-center gap-2">
+                      <ArrowRight className="w-4 h-4 text-[#C96B2C]" />
+                      Machame Route (6–7 days)
+                    </span>
+                    <span className="text-[10px] bg-[#C9A227]/20 text-[#1F4D3A] rounded px-2 py-0.5 uppercase tracking-wider font-bold py-1 flex items-center gap-1 font-mono">
+                      ⭐ popular
+                    </span>
+                  </li>
+                  <li className="flex items-center justify-between p-3 rounded-lg bg-stone-55/40 border border-stone-100 text-sm font-semibold text-[#1F4D3A]">
+                    <span className="flex items-center gap-2">
+                      <ArrowRight className="w-4 h-4 text-stone-400" />
+                      Marangu Route (5–6 days)
+                    </span>
+                  </li>
+                  <li className="flex items-center justify-between p-3 rounded-lg bg-stone-55/40 border border-stone-100 text-sm font-semibold text-[#1F4D3A]">
+                    <span className="flex items-center gap-2">
+                      <ArrowRight className="w-4 h-4 text-[#C96B2C]" />
+                      Lemosho Route (7–8 days)
+                    </span>
+                    <span className="text-[10px] bg-teal-500/10 text-teal-800 rounded px-2 py-0.5 uppercase tracking-wider font-bold py-1 flex items-center gap-1 font-mono">
+                      ⭐ scenic
+                    </span>
+                  </li>
+                </ul>
+              </div>
+
+              {/* Inclusions */}
+              <div className="bg-[#1F4D3A]/5 border border-[#1F4D3A]/10 rounded-xl p-5">
+                <span className="block text-stone-500 font-mono text-[10px] uppercase tracking-wider font-bold mb-3">
+                  What’s Included
+                </span>
+                <ul className="space-y-2">
+                  {[
+                    "Professional guides, porters & cook",
+                    "All park fees",
+                    "Camping / hut accommodation",
+                    "Meals during the trek",
+                    "Transfers from/to hotel"
+                  ].map((inc, i) => (
+                    <li key={i} className="flex items-start gap-2 text-xs sm:text-sm font-medium text-[#1F4D3A]">
+                      <span className="text-[#C9A227] font-semibold text-sm select-none">✔</span>
+                      <span>{inc}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+            {/* Inquire CTA row */}
+            <div className="flex flex-col sm:flex-row items-center justify-between border-t border-stone-100 pt-6 mt-8 gap-4">
+              <div className="inline-flex items-center gap-1.5 text-xs text-stone-600 font-mono">
+                <span className="text-[#C96B2C] font-semibold">👉 Best for:</span>
+                <span className="font-bold uppercase tracking-wider text-[#1F4D3A]">Adventure seekers, serious hikers</span>
+              </div>
+
+              <a
+                href="https://wa.me/255714998804?text=Hi%2520Chaka%2520Safaris%2520and%2520Hiking!%2520I%252520am%252520interested%252520in%252520Mount%252520Kilimanjaro%252520Climbing%252520packages."
+                target="_blank"
+                rel="noreferrer"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20ba59] active:scale-95 text-white font-bold text-xs uppercase tracking-wider py-3 px-6 rounded-lg shadow-md transition-all duration-300"
+              >
+                <WhatsAppIcon className="w-4 h-4 fill-white" />
+                <span>Inquire on WhatsApp</span>
+              </a>
+            </div>
+          </motion.div>
+
+          {/* SECTION 2: MOUNT MERU TREK */}
+          <motion.div 
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="bg-white rounded-2xl border border-stone-200 shadow-sm p-6 sm:p-8 hover:shadow-md transition-all"
+          >
+            <div className="flex flex-wrap items-center justify-between gap-4 border-b border-stone-100 pb-5 mb-6">
+              <div className="flex items-center gap-3">
+                <span className="text-3xl sm:text-4xl">🌋</span>
+                <div>
+                  <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#1F4D3A]">
+                    Mount Meru Trek
+                  </h2>
+                  <div className="flex items-center gap-1 text-xs text-stone-500 font-mono mt-0.5">
+                    <MapPin className="w-3.5 h-3.5 text-[#C96B2C]" />
+                    <span>Location: Mount Meru</span>
+                  </div>
+                </div>
+              </div>
+              <div className="text-right">
+                <span className="block text-[10px] text-stone-400 font-mono uppercase tracking-wider font-bold">Duration</span>
+                <span className="text-[#1F4D3A] font-bold text-sm bg-stone-100 border border-stone-200 rounded px-2.5 py-1 inline-block font-mono">
+                  3–4 Days
+                </span>
+              </div>
+            </div>
+
+            {/* Overview */}
+            <div className="space-y-2 mb-6">
+              <span className="block text-stone-400 font-mono text-[10px] uppercase tracking-wider font-bold">
+                Overview
+              </span>
+              <p className="text-[#2B2B2B]/95 text-base leading-relaxed">
+                A perfect alternative to Kilimanjaro with fewer crowds and amazing wildlife views inside Arusha National Park.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {/* What to Expect */}
+              <div>
+                <span className="block text-stone-400 font-mono text-[10px] uppercase tracking-wider font-bold mb-3">
+                  What to Expect
+                </span>
+                <ul className="space-y-2.5">
+                  {[
+                    "Guided trekking",
+                    "Wildlife encounters (giraffes, buffaloes)",
+                    "Stunning sunrise views"
+                  ].map((exp, i) => (
+                    <li key={i} className="flex items-start gap-2.5 text-sm font-semibold text-[#1F4D3A]">
+                      <span className="text-[#C9A227] mt-1 select-none">✦</span>
+                      <span>{exp}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Price Range */}
+              <div className="bg-[#1F4D3A]/5 border border-[#1F4D3A]/10 rounded-xl p-5">
+                <span className="block text-stone-500 font-mono text-[10px] uppercase tracking-wider font-bold mb-3">
+                  Price Range
+                </span>
+                <div className="space-y-2 font-mono">
+                  <div className="flex justify-between border-b border-stone-200/55 pb-2 text-sm text-stone-700">
+                    <span className="font-semibold text-[#1F4D3A]">Budget</span>
+                    <span className="font-bold text-[#C96B2C]">$600</span>
+                  </div>
+                  <div className="flex justify-between text-sm text-stone-700 pt-1">
+                    <span className="font-semibold text-[#1F4D3A]">Mid-range</span>
+                    <span className="font-bold text-[#1F4D3A]">$800</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Inquire CTA row */}
+            <div className="flex flex-col sm:flex-row items-center justify-between border-t border-stone-100 pt-6 mt-8 gap-4">
+              <div className="inline-flex items-center gap-1.5 text-xs text-stone-600 font-mono">
+                <span className="text-[#C96B2C] font-semibold">👉 Best for:</span>
+                <span className="font-bold uppercase tracking-wider text-[#1F4D3A]">Short adventure, acclimatization</span>
+              </div>
+
+              <a
+                href="https://wa.me/255714998804?text=Hi%2520Chaka%2520Safaris%2520and%2520Hiking!%2520I%252520am%252520interested%252520in%252520Mount%252520Meru%252520Trek."
+                target="_blank"
+                rel="noreferrer"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20ba59] active:scale-95 text-white font-bold text-xs uppercase tracking-wider py-3 px-6 rounded-lg shadow-md transition-all duration-300"
+              >
+                <WhatsAppIcon className="w-4 h-4 fill-white" />
+                <span>Inquire on WhatsApp</span>
+              </a>
+            </div>
+          </motion.div>
+
+          {/* SECTION 3: DAY HIKES */}
+          <motion.div 
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="bg-white rounded-2xl border border-stone-200 shadow-sm p-6 sm:p-8 hover:shadow-md transition-all"
+          >
+            <div className="border-b border-stone-100 pb-5 mb-6 flex items-center gap-3">
+              <span className="text-3xl sm:text-4xl">🥾</span>
+              <div>
+                <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#1F4D3A]">
+                  Day Hikes (Short Mountains & Trails)
+                </h2>
+                <span className="text-xs text-stone-500 font-mono mt-0.5">
+                  Single-day exploratory excursions out of Arusha
+                </span>
+              </div>
+            </div>
+
+            <div className="space-y-4">
+              {[
+                { name: "Materuni Village Hike", icon: "🌿", location: "Materuni Waterfalls", price: "$120" },
+                { name: "Napuru Waterfalls Hike", icon: "🌄", location: "Napuru Waterfalls", price: "$100" },
+                { name: "Mount Meru Day Hike", icon: "🌳", location: "Mount Meru", price: "$150" }
+              ].map((hike, idx) => (
+                <div key={idx} className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 p-4 rounded-xl bg-stone-50 border border-stone-200/60 hover:border-[#C9A227]/40 shadow-xs transition-colors">
+                  <div className="flex items-center gap-3.5">
+                    <span className="text-3xl select-none">{hike.icon}</span>
+                    <div>
+                      <h4 className="font-serif text-lg font-bold text-[#1F4D3A]">
+                        {hike.name}
+                      </h4>
+                      <p className="text-xs text-stone-500 font-mono flex items-center gap-1 mt-0.5">
+                        <MapPin className="w-3.5 h-3.5 text-[#C96B2C]" />
+                        <span>Location: {hike.location}</span>
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex sm:flex-col items-center sm:items-end justify-between w-full sm:w-auto border-t sm:border-t-0 pt-3 sm:pt-0 border-stone-200/50 mt-2 sm:mt-0 gap-3">
+                    <div className="text-left sm:text-right">
+                      <span className="block text-[9px] text-[#C96B2C] font-bold uppercase tracking-wider font-mono">Price</span>
+                      <span className="text-lg font-bold text-[#1F4D3A] font-mono">
+                        {hike.price}
+                      </span>
+                    </div>
+
+                    <a
+                      href={`https://wa.me/255714998804?text=Hi%2520Chaka%2520Safaris%2520and%2520Hiking!%2520I%2520am%2520interested%2520in%2520planning%2520the%2520${encodeURIComponent(hike.name)}.`}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="bg-[#25D366] hover:bg-[#20ba59] active:scale-95 text-white font-bold text-xs uppercase tracking-wider py-1.5 px-3.5 rounded-lg shadow-xs transition-all flex items-center justify-center gap-1.5 cursor-pointer"
+                    >
+                      <WhatsAppIcon className="w-3.5 h-3.5 fill-white" />
+                      <span>Inquire Hike</span>
+                    </a>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+
+        </div>
+      </section>
+
+    </div>
+  );
+}
