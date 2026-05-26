@@ -35,9 +35,6 @@ export default function Navbar({ onOpenBooking, currentView, onChangeView }: Nav
     { label: 'About', view: 'about' },
     { label: 'CHAKA SAFARIS & HIKING', view: 'kilimanjaro' },
     { label: 'MOUNTAIN PAGE', view: 'safaris' },
-    { label: 'Gallery', view: 'gallery' },
-    { label: 'Testimonials', view: 'testimonials' },
-    { label: 'FAQ', view: 'faq' },
     { label: 'Contact', view: 'contact' },
   ];
 
@@ -100,18 +97,7 @@ export default function Navbar({ onOpenBooking, currentView, onChangeView }: Nav
             ))}
           </nav>
 
-          {/* Desktop Button Group */}
-          <div className="hidden lg:flex items-center gap-4">
-            <a
-              href="https://wa.me/255714998804?text=Hello%20Chaka%20Safaris%20and%20Hiking!%20I%20am%20interested%20in%20booking%20a%2520tour%2520with%2520you."
-              target="_blank"
-              rel="noreferrer"
-              className="flex items-center gap-2 text-sm text-[#F5F1E8] hover:text-[#C9A227] transition-colors duration-200"
-            >
-              <PhoneCall className="w-4 h-4 text-[#C9A227]" />
-              <span className="font-mono text-xs">+255 714 998 804</span>
-            </a>
-          </div>
+
 
           {/* Mobile Hamburguer */}
           <div className="lg:hidden flex items-center gap-3">
@@ -157,19 +143,7 @@ export default function Navbar({ onOpenBooking, currentView, onChangeView }: Nav
               ))}
             </div>
 
-            <div className="h-[1px] bg-white/15 my-1" />
 
-            <div className="flex items-center justify-center px-2 pt-2">
-              <a
-                href="https://wa.me/255714998804?text=Hello%20Chaka%20Safaris%20and%20Hiking!%20I%20am%20interested%20in%20booking%20a%20tour."
-                target="_blank"
-                rel="noreferrer"
-                className="flex items-center gap-2 text-sm text-[#F5F1E8] py-1"
-              >
-                <PhoneCall className="w-4 h-4 text-[#C9A227]" />
-                <span className="font-mono text-xs">+255 714 998 804</span>
-              </a>
-            </div>
           </motion.div>
         )}
       </AnimatePresence>
