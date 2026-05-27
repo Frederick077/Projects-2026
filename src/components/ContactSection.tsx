@@ -12,15 +12,15 @@ interface ContactSectionProps {
 
 export default function ContactSection({ onOpenBooking }: ContactSectionProps) {
   return (
-    <section id="contact" className="py-20 bg-[#F5F1E8] text-[#2B2B2B] scroll-mt-20">
+    <section id="contact" className="py-20 bg-[#EFECE3] text-[#2B2B2B] scroll-mt-20">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-12">
-          <span className="text-xs font-bold tracking-widest text-[#C96B2C] uppercase block mb-3 font-mono">
+          <span className="text-xs font-bold tracking-widest text-[#9B6338] uppercase block mb-3 font-mono">
             Get In Touch 📍
           </span>
-          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-[#1F4D3A] mb-4">
+          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-[#0E251D] mb-4">
             Contact Chaka Safaris
           </h2>
           <p className="text-sm sm:text-base text-[#2B2B2B]/75">
@@ -31,14 +31,14 @@ export default function ContactSection({ onOpenBooking }: ContactSectionProps) {
         {/* Centered Chaka Safaris Office Card */}
         <div className="max-w-xl mx-auto bg-white rounded-2xl p-8 sm:p-10 border border-gray-200/60 shadow-lg">
           <div className="flex items-center gap-3 mb-8 border-b border-gray-100 pb-5">
-            <div className="bg-[#1F4D3A] p-2 rounded-lg flex items-center justify-center">
-              <Compass className="w-5 h-5 text-[#C9A227] stroke-[2.5]" />
+            <div className="bg-[#0E251D] p-2 rounded-lg flex items-center justify-center">
+              <Compass className="w-5 h-5 text-[#8D5A34] stroke-[2.5]" />
             </div>
             <div>
-              <h3 className="font-serif text-2xl font-bold text-[#1F4D3A] leading-none mb-1">
+              <h3 className="font-serif text-2xl font-bold text-[#0E251D] leading-none mb-1">
                 Chaka Safaris Office
               </h3>
-              <span className="text-[10px] text-[#C96B2C] font-mono tracking-widest uppercase">
+              <span className="text-[10px] text-[#9B6338] font-mono tracking-widest uppercase">
                 Arusha, Tanzania
               </span>
             </div>
@@ -47,20 +47,20 @@ export default function ContactSection({ onOpenBooking }: ContactSectionProps) {
           <ul className="space-y-8">
             {/* Location */}
             <li className="flex items-start gap-4">
-              <div className="bg-[#1F4D3A]/5 text-[#1F4D3A] p-3 rounded-xl border border-[#1F4D3A]/5 shrink-0">
-                <MapPin className="w-5 h-5 text-[#C96B2C]" />
+              <div className="bg-[#0E251D]/5 text-[#0E251D] p-3 rounded-xl border border-[#0E251D]/5 shrink-0">
+                <MapPin className="w-5 h-5 text-[#9B6338]" />
               </div>
               <div>
                 <span className="block text-[10px] uppercase font-mono tracking-wider text-gray-400">Headquarters Location</span>
-                <strong className="block text-sm sm:text-base text-[#1F4D3A] mt-0.5">Saba Saba Road, Arusha, Tanzania</strong>
+                <strong className="block text-sm sm:text-base text-[#0E251D] mt-0.5">Saba Saba Road, Arusha, Tanzania</strong>
                 <span className="text-xs text-gray-500 block mt-0.5">Opposite Arusha Cultural Museum (Gate #3)</span>
               </div>
             </li>
 
             {/* WhatsApp Phone */}
             <li className="flex items-start gap-4">
-              <div className="bg-[#1F4D3A]/5 text-[#1F4D3A] p-3 rounded-xl border border-[#1F4D3A]/5 shrink-0">
-                <Phone className="w-5 h-5 text-[#C9A227]" />
+              <div className="bg-[#0E251D]/5 text-[#0E251D] p-3 rounded-xl border border-[#0E251D]/5 shrink-0">
+                <Phone className="w-5 h-5 text-[#8D5A34]" />
               </div>
               <div>
                 <span className="block text-[10px] uppercase font-mono tracking-wider text-gray-400">WhatsApp and Mobile Call</span>
@@ -68,7 +68,7 @@ export default function ContactSection({ onOpenBooking }: ContactSectionProps) {
                   href="https://wa.me/255714998804?text=Hi%20Chaka%20Safaris%20and%20Hiking!%20I%2520am%2520interested%2520in%2520booking%2520a%2520tour."
                   target="_blank"
                   rel="noreferrer"
-                  className="block text-base sm:text-lg text-[#1F4D3A] font-extrabold hover:text-[#C96B2C] mt-0.5 transition-colors font-mono"
+                  className="block text-base sm:text-lg text-[#0E251D] font-extrabold hover:text-[#9B6338] mt-0.5 transition-colors font-mono"
                 >
                   +255 714 998 804
                 </a>
@@ -78,14 +78,14 @@ export default function ContactSection({ onOpenBooking }: ContactSectionProps) {
 
             {/* Email Address */}
             <li className="flex items-start gap-4">
-              <div className="bg-[#1F4D3A]/5 text-[#1F4D3A] p-3 rounded-xl border border-[#1F4D3A]/5 shrink-0">
-                <Mail className="w-5 h-5 text-[#1F4D3A]" />
+              <div className="bg-[#0E251D]/5 text-[#0E251D] p-3 rounded-xl border border-[#0E251D]/5 shrink-0">
+                <Mail className="w-5 h-5 text-[#0E251D]" />
               </div>
               <div>
                 <span className="block text-[10px] uppercase font-mono tracking-wider text-gray-400">Official Email handles</span>
                 <a
                   href="mailto:info@chakasafaris.com"
-                  className="block text-[#1F4D3A] font-bold hover:text-[#C96B2C] mt-0.5 transition-colors text-sm sm:text-base"
+                  className="block text-[#0E251D] font-bold hover:text-[#9B6338] mt-0.5 transition-colors text-sm sm:text-base"
                 >
                   info@chakasafaris.com
                 </a>
@@ -113,7 +113,7 @@ export default function ContactSection({ onOpenBooking }: ContactSectionProps) {
                   <a
                     key={idx}
                     href={s.href}
-                    className="bg-[#1F4D3A] hover:bg-[#C9A227] text-white hover:text-[#1F4D3A] p-3 rounded-xl transition-all duration-200 border border-black/5 flex items-center justify-center hover:scale-105 active:scale-95 shadow-sm"
+                    className="bg-[#0E251D] hover:bg-[#8D5A34] text-white hover:text-[#0E251D] p-3 rounded-xl transition-all duration-200 border border-black/5 flex items-center justify-center hover:scale-105 active:scale-95 shadow-sm"
                     aria-label={s.label}
                   >
                     <SvgIcon className="w-4 h-4" />

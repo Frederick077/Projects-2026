@@ -28,7 +28,7 @@ export default function MountainPageSection({ onOpenBooking }: MountainPageSecti
     <div id="mountain-page" className="scroll-mt-20">
       
       {/* HEADER SECTION */}
-      <div className="relative bg-[#1F4D3A] text-white py-16 sm:py-20 overflow-hidden rounded-b-3xl shadow-lg border-b border-stone-200/10">
+      <div className="relative bg-[#0E251D] text-white py-16 sm:py-20 overflow-hidden rounded-b-3xl shadow-lg border-b border-stone-200/10">
         <div className="absolute inset-0 z-0">
           <img
             src="https://images.unsplash.com/photo-1589553460730-dfbeb39ef32e?w=1920&auto=format&fit=crop&q=85"
@@ -36,18 +36,18 @@ export default function MountainPageSection({ onOpenBooking }: MountainPageSecti
             className="w-full h-full object-cover opacity-25 filter grayscale-[20%]"
             referrerPolicy="no-referrer"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-stone-900/95 via-[#1F4D3A]/90 to-[#1F4D3A]" />
+          <div className="absolute inset-0 bg-gradient-to-t from-stone-900/95 via-[#0E251D]/90 to-[#0E251D]" />
         </div>
 
         <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center">
           <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md rounded-full px-4 py-1.5 border border-white/20 shadow-md mb-4">
-            <Compass className="w-4 h-4 text-[#C9A227]" />
-            <span className="font-mono text-[10px] text-[#F5F1E8] font-bold uppercase tracking-widest">
+            <Compass className="w-4 h-4 text-[#8D5A34]" />
+            <span className="font-mono text-[10px] text-[#EFECE3] font-bold uppercase tracking-widest">
               Tanzania Peaks & Trails
             </span>
           </div>
 
-          <h1 className="font-serif text-3xl sm:text-5xl font-bold text-[#F5F1E8] tracking-tight leading-none mb-3">
+          <h1 className="font-serif text-3xl sm:text-5xl font-bold text-[#EFECE3] tracking-tight leading-none mb-3">
             Mountain Experiences
           </h1>
           <p className="text-stone-300 text-sm sm:text-base font-mono uppercase tracking-widest max-w-xl text-center">
@@ -57,7 +57,7 @@ export default function MountainPageSection({ onOpenBooking }: MountainPageSecti
       </div>
 
       {/* CORE MOUNTAIN CONTENT */}
-      <section className="py-16 bg-[#F5F1E8] text-[#2B2B2B]">
+      <section className="py-16 bg-[#EFECE3] dark:bg-[#121c17] text-[#2B2B2B] dark:text-[#EFECE3] transition-colors duration-350">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
           
           {/* SECTION 1: MOUNT KILIMANJARO CLIMBING */}
@@ -66,17 +66,17 @@ export default function MountainPageSection({ onOpenBooking }: MountainPageSecti
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="bg-white rounded-2xl border border-stone-200 shadow-sm p-6 sm:p-8 hover:shadow-md transition-all"
+            className="bg-white dark:bg-[#1a2b23] rounded-2xl border border-stone-200 dark:border-white/10 shadow-sm p-6 sm:p-8 hover:shadow-md transition-all"
           >
-            <div className="flex flex-wrap items-center justify-between gap-4 border-b border-stone-100 pb-5 mb-6">
+            <div className="flex flex-wrap items-center justify-between gap-4 border-b border-stone-100 dark:border-white/10 pb-5 mb-6">
               <div className="flex items-center gap-3">
                 <span className="text-3xl sm:text-4xl">🌄</span>
                 <div>
-                  <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#1F4D3A]">
+                  <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#0E251D] dark:text-[#F5F1E8]">
                     Mount Kilimanjaro Climbing
                   </h2>
-                  <div className="flex items-center gap-1 text-xs text-stone-500 font-mono mt-0.5">
-                    <MapPin className="w-3.5 h-3.5 text-[#C96B2C]" />
+                  <div className="flex items-center gap-1 text-xs text-stone-500 dark:text-stone-400 font-mono mt-0.5">
+                    <MapPin className="w-3.5 h-3.5 text-[#9B6338]" />
                     <span>Location: Mount Kilimanjaro</span>
                   </div>
                 </div>
@@ -85,10 +85,10 @@ export default function MountainPageSection({ onOpenBooking }: MountainPageSecti
 
             {/* Overview */}
             <div className="space-y-2 mb-6">
-              <span className="block text-stone-400 font-mono text-[10px] uppercase tracking-wider font-bold">
+              <span className="block text-stone-400 dark:text-stone-500 font-mono text-[10px] uppercase tracking-wider font-bold">
                 Overview
               </span>
-              <p className="text-[#2B2B2B]/95 text-base leading-relaxed">
+              <p className="text-[#2B2B2B]/95 dark:text-stone-300 text-base leading-relaxed">
                 Climb the highest mountain in Africa and experience one of the world’s most iconic adventures. Our professional team will guide you safely to the summit.
               </p>
             </div>
@@ -96,31 +96,31 @@ export default function MountainPageSection({ onOpenBooking }: MountainPageSecti
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {/* Routes */}
               <div>
-                <span className="block text-stone-400 font-mono text-[10px] uppercase tracking-wider font-bold mb-3">
+                <span className="block text-stone-400 dark:text-stone-500 font-mono text-[10px] uppercase tracking-wider font-bold mb-3">
                   Routes Available
                 </span>
                 <ul className="space-y-3">
-                  <li className="flex items-center justify-between p-3 rounded-lg bg-stone-55/40 border border-stone-100 text-sm font-semibold text-[#1F4D3A]">
+                  <li className="flex items-center justify-between p-3 rounded-lg bg-stone-50 dark:bg-white/5 border border-stone-100 dark:border-white/5 text-sm font-semibold text-[#0E251D] dark:text-stone-200">
                     <span className="flex items-center gap-2">
-                      <ArrowRight className="w-4 h-4 text-[#C96B2C]" />
+                      <ArrowRight className="w-4 h-4 text-[#9B6338]" />
                       Machame Route (6–7 days)
                     </span>
-                    <span className="text-[10px] bg-[#C9A227]/20 text-[#1F4D3A] rounded px-2 py-0.5 uppercase tracking-wider font-bold py-1 flex items-center gap-1 font-mono">
+                    <span className="text-[10px] bg-[#8D5A34]/20 text-[#0E251D] dark:text-[#8D5A34] rounded px-2 py-0.5 uppercase tracking-wider font-bold py-1 flex items-center gap-1 font-mono">
                       ⭐ popular
                     </span>
                   </li>
-                  <li className="flex items-center justify-between p-3 rounded-lg bg-stone-55/40 border border-stone-100 text-sm font-semibold text-[#1F4D3A]">
+                  <li className="flex items-center justify-between p-3 rounded-lg bg-stone-50 dark:bg-white/5 border border-stone-100 dark:border-white/5 text-sm font-semibold text-[#0E251D] dark:text-stone-200">
                     <span className="flex items-center gap-2">
-                      <ArrowRight className="w-4 h-4 text-stone-400" />
+                       <ArrowRight className="w-4 h-4 text-stone-400 dark:text-stone-500" />
                       Marangu Route (5–6 days)
                     </span>
                   </li>
-                  <li className="flex items-center justify-between p-3 rounded-lg bg-stone-55/40 border border-stone-100 text-sm font-semibold text-[#1F4D3A]">
+                  <li className="flex items-center justify-between p-3 rounded-lg bg-stone-50 dark:bg-white/5 border border-stone-100 dark:border-white/5 text-sm font-semibold text-[#0E251D] dark:text-stone-200">
                     <span className="flex items-center gap-2">
-                      <ArrowRight className="w-4 h-4 text-[#C96B2C]" />
+                      <ArrowRight className="w-4 h-4 text-[#9B6338]" />
                       Lemosho Route (7–8 days)
                     </span>
-                    <span className="text-[10px] bg-teal-500/10 text-teal-800 rounded px-2 py-0.5 uppercase tracking-wider font-bold py-1 flex items-center gap-1 font-mono">
+                    <span className="text-[10px] bg-teal-500/10 text-teal-800 dark:text-teal-400 rounded px-2 py-0.5 uppercase tracking-wider font-bold py-1 flex items-center gap-1 font-mono">
                       ⭐ scenic
                     </span>
                   </li>
@@ -128,8 +128,8 @@ export default function MountainPageSection({ onOpenBooking }: MountainPageSecti
               </div>
 
               {/* Inclusions */}
-              <div className="bg-[#1F4D3A]/5 border border-[#1F4D3A]/10 rounded-xl p-5">
-                <span className="block text-stone-500 font-mono text-[10px] uppercase tracking-wider font-bold mb-3">
+              <div className="bg-[#0E251D]/5 dark:bg-white/5 border border-[#0E251D]/10 dark:border-white/10 rounded-xl p-5">
+                <span className="block text-stone-500 dark:text-stone-400 font-mono text-[10px] uppercase tracking-wider font-bold mb-3">
                   What’s Included
                 </span>
                 <ul className="space-y-2">
@@ -140,8 +140,8 @@ export default function MountainPageSection({ onOpenBooking }: MountainPageSecti
                     "Meals during the trek",
                     "Transfers from/to hotel"
                   ].map((inc, i) => (
-                    <li key={i} className="flex items-start gap-2 text-xs sm:text-sm font-medium text-[#1F4D3A]">
-                      <span className="text-[#C9A227] font-semibold text-sm select-none">✔</span>
+                    <li key={i} className="flex items-start gap-2 text-xs sm:text-sm font-medium text-[#0E251D] dark:text-stone-200">
+                      <span className="text-[#8D5A34] font-semibold text-sm select-none">✔</span>
                       <span>{inc}</span>
                     </li>
                   ))}
@@ -150,10 +150,10 @@ export default function MountainPageSection({ onOpenBooking }: MountainPageSecti
             </div>
 
             {/* Inquire CTA row */}
-            <div className="flex flex-col sm:flex-row items-center justify-between border-t border-stone-100 pt-6 mt-8 gap-4">
-              <div className="inline-flex items-center gap-1.5 text-xs text-stone-600 font-mono">
-                <span className="text-[#C96B2C] font-semibold">👉 Best for:</span>
-                <span className="font-bold uppercase tracking-wider text-[#1F4D3A]">Adventure seekers, serious hikers</span>
+            <div className="flex flex-col sm:flex-row items-center justify-between border-t border-stone-100 dark:border-white/10 pt-6 mt-8 gap-4">
+              <div className="inline-flex items-center gap-1.5 text-xs text-stone-600 dark:text-stone-400 font-mono">
+                <span className="text-[#9B6338] font-semibold">👉 Best for:</span>
+                <span className="font-bold uppercase tracking-wider text-[#0E251D] dark:text-stone-300">Adventure seekers, serious hikers</span>
               </div>
 
               <a
@@ -174,24 +174,24 @@ export default function MountainPageSection({ onOpenBooking }: MountainPageSecti
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="bg-white rounded-2xl border border-stone-200 shadow-sm p-6 sm:p-8 hover:shadow-md transition-all"
+            className="bg-white dark:bg-[#1a2b23] rounded-2xl border border-stone-200 dark:border-white/10 shadow-sm p-6 sm:p-8 hover:shadow-md transition-all"
           >
-            <div className="flex flex-wrap items-center justify-between gap-4 border-b border-stone-100 pb-5 mb-6">
+            <div className="flex flex-wrap items-center justify-between gap-4 border-b border-stone-100 dark:border-white/10 pb-5 mb-6">
               <div className="flex items-center gap-3">
                 <span className="text-3xl sm:text-4xl">🌋</span>
                 <div>
-                  <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#1F4D3A]">
+                  <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#0E251D] dark:text-[#F5F1E8]">
                     Mount Meru Trek
                   </h2>
-                  <div className="flex items-center gap-1 text-xs text-stone-500 font-mono mt-0.5">
-                    <MapPin className="w-3.5 h-3.5 text-[#C96B2C]" />
+                  <div className="flex items-center gap-1 text-xs text-stone-500 dark:text-stone-400 font-mono mt-0.5">
+                    <MapPin className="w-3.5 h-3.5 text-[#9B6338]" />
                     <span>Location: Mount Meru</span>
                   </div>
                 </div>
               </div>
               <div className="text-right">
-                <span className="block text-[10px] text-stone-400 font-mono uppercase tracking-wider font-bold">Duration</span>
-                <span className="text-[#1F4D3A] font-bold text-sm bg-stone-100 border border-stone-200 rounded px-2.5 py-1 inline-block font-mono">
+                <span className="block text-[10px] text-stone-400 dark:text-stone-500 font-mono uppercase tracking-wider font-bold">Duration</span>
+                <span className="text-[#0E251D] dark:text-[#8D5A34] font-bold text-sm bg-stone-100 dark:bg-white/5 border border-stone-200 dark:border-white/10 rounded px-2.5 py-1 inline-block font-mono">
                   3–4 Days
                 </span>
               </div>
@@ -199,10 +199,10 @@ export default function MountainPageSection({ onOpenBooking }: MountainPageSecti
 
             {/* Overview */}
             <div className="space-y-2 mb-6">
-              <span className="block text-stone-400 font-mono text-[10px] uppercase tracking-wider font-bold">
+              <span className="block text-stone-400 dark:text-stone-500 font-mono text-[10px] uppercase tracking-wider font-bold">
                 Overview
               </span>
-              <p className="text-[#2B2B2B]/95 text-base leading-relaxed">
+              <p className="text-[#2B2B2B]/95 dark:text-stone-300 text-base leading-relaxed">
                 A perfect alternative to Kilimanjaro with fewer crowds and amazing wildlife views inside Arusha National Park.
               </p>
             </div>
@@ -210,7 +210,7 @@ export default function MountainPageSection({ onOpenBooking }: MountainPageSecti
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {/* What to Expect */}
               <div>
-                <span className="block text-stone-400 font-mono text-[10px] uppercase tracking-wider font-bold mb-3">
+                <span className="block text-stone-400 dark:text-stone-500 font-mono text-[10px] uppercase tracking-wider font-bold mb-3">
                   What to Expect
                 </span>
                 <ul className="space-y-2.5">
@@ -219,8 +219,8 @@ export default function MountainPageSection({ onOpenBooking }: MountainPageSecti
                     "Wildlife encounters (giraffes, buffaloes)",
                     "Stunning sunrise views"
                   ].map((exp, i) => (
-                    <li key={i} className="flex items-start gap-2.5 text-sm font-semibold text-[#1F4D3A]">
-                      <span className="text-[#C9A227] mt-1 select-none">✦</span>
+                    <li key={i} className="flex items-start gap-2.5 text-sm font-semibold text-[#0E251D] dark:text-stone-200">
+                      <span className="text-[#8D5A34] mt-1 select-none">✦</span>
                       <span>{exp}</span>
                     </li>
                   ))}
@@ -228,28 +228,28 @@ export default function MountainPageSection({ onOpenBooking }: MountainPageSecti
               </div>
 
               {/* Price Range */}
-              <div className="bg-[#1F4D3A]/5 border border-[#1F4D3A]/10 rounded-xl p-5">
-                <span className="block text-stone-500 font-mono text-[10px] uppercase tracking-wider font-bold mb-3">
+              <div className="bg-[#0E251D]/5 dark:bg-white/5 border border-[#0E251D]/10 dark:border-white/10 rounded-xl p-5">
+                <span className="block text-stone-500 dark:text-stone-400 font-mono text-[10px] uppercase tracking-wider font-bold mb-3">
                   Price Range
                 </span>
                 <div className="space-y-2 font-mono">
-                  <div className="flex justify-between border-b border-stone-200/55 pb-2 text-sm text-stone-700">
-                    <span className="font-semibold text-[#1F4D3A]">Budget</span>
-                    <span className="font-bold text-[#C96B2C]">$600</span>
+                  <div className="flex justify-between border-b border-stone-200/55 dark:border-white/10 pb-2 text-sm text-stone-700 dark:text-stone-300">
+                    <span className="font-semibold text-[#0E251D] dark:text-[#F5F1E8]">Budget</span>
+                    <span className="font-bold text-[#9B6338]">$600</span>
                   </div>
-                  <div className="flex justify-between text-sm text-stone-700 pt-1">
-                    <span className="font-semibold text-[#1F4D3A]">Mid-range</span>
-                    <span className="font-bold text-[#1F4D3A]">$800</span>
+                  <div className="flex justify-between text-sm text-stone-700 dark:text-stone-300 pt-1">
+                    <span className="font-semibold text-[#0E251D] dark:text-[#F5F1E8]">Mid-range</span>
+                    <span className="font-bold text-[#0E251D] dark:text-[#8D5A34]">$800</span>
                   </div>
                 </div>
               </div>
             </div>
 
             {/* Inquire CTA row */}
-            <div className="flex flex-col sm:flex-row items-center justify-between border-t border-stone-100 pt-6 mt-8 gap-4">
-              <div className="inline-flex items-center gap-1.5 text-xs text-stone-600 font-mono">
-                <span className="text-[#C96B2C] font-semibold">👉 Best for:</span>
-                <span className="font-bold uppercase tracking-wider text-[#1F4D3A]">Short adventure, acclimatization</span>
+            <div className="flex flex-col sm:flex-row items-center justify-between border-t border-stone-100 dark:border-white/10 pt-6 mt-8 gap-4">
+              <div className="inline-flex items-center gap-1.5 text-xs text-stone-600 dark:text-stone-400 font-mono">
+                <span className="text-[#9B6338] font-semibold">👉 Best for:</span>
+                <span className="font-bold uppercase tracking-wider text-[#0E251D] dark:text-stone-300">Short adventure, acclimatization</span>
               </div>
 
               <a
@@ -270,15 +270,15 @@ export default function MountainPageSection({ onOpenBooking }: MountainPageSecti
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="bg-white rounded-2xl border border-stone-200 shadow-sm p-6 sm:p-8 hover:shadow-md transition-all"
+            className="bg-white dark:bg-[#1a2b23] rounded-2xl border border-stone-200 dark:border-white/10 shadow-sm p-6 sm:p-8 hover:shadow-md transition-all"
           >
-            <div className="border-b border-stone-100 pb-5 mb-6 flex items-center gap-3">
+            <div className="border-b border-stone-100 dark:border-white/10 pb-5 mb-6 flex items-center gap-3">
               <span className="text-3xl sm:text-4xl">🥾</span>
               <div>
-                <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#1F4D3A]">
+                <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#0E251D] dark:text-[#F5F1E8]">
                   Day Hikes (Short Mountains & Trails)
                 </h2>
-                <span className="text-xs text-stone-500 font-mono mt-0.5">
+                <span className="text-xs text-stone-500 dark:text-stone-400 font-mono mt-0.5">
                   Single-day exploratory excursions out of Arusha
                 </span>
               </div>
@@ -290,24 +290,24 @@ export default function MountainPageSection({ onOpenBooking }: MountainPageSecti
                 { name: "Napuru Waterfalls Hike", icon: "🌄", location: "Napuru Waterfalls", price: "$100" },
                 { name: "Mount Meru Day Hike", icon: "🌳", location: "Mount Meru", price: "$150" }
               ].map((hike, idx) => (
-                <div key={idx} className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 p-4 rounded-xl bg-stone-50 border border-stone-200/60 hover:border-[#C9A227]/40 shadow-xs transition-colors">
+                <div key={idx} className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 p-4 rounded-xl bg-stone-50 dark:bg-white/5 border border-stone-200/60 dark:border-white/10 hover:border-[#8D5A34]/40 dark:hover:border-[#8D5A34]/40 shadow-xs transition-colors">
                   <div className="flex items-center gap-3.5">
                     <span className="text-3xl select-none">{hike.icon}</span>
                     <div>
-                      <h4 className="font-serif text-lg font-bold text-[#1F4D3A]">
+                      <h4 className="font-serif text-lg font-bold text-[#0E251D] dark:text-[#F5F1E8]">
                         {hike.name}
                       </h4>
-                      <p className="text-xs text-stone-500 font-mono flex items-center gap-1 mt-0.5">
-                        <MapPin className="w-3.5 h-3.5 text-[#C96B2C]" />
+                      <p className="text-xs text-stone-500 dark:text-stone-400 font-mono flex items-center gap-1 mt-0.5">
+                        <MapPin className="w-3.5 h-3.5 text-[#9B6338]" />
                         <span>Location: {hike.location}</span>
                       </p>
                     </div>
                   </div>
 
-                  <div className="flex sm:flex-col items-center sm:items-end justify-between w-full sm:w-auto border-t sm:border-t-0 pt-3 sm:pt-0 border-stone-200/50 mt-2 sm:mt-0 gap-3">
+                  <div className="flex sm:flex-col items-center sm:items-end justify-between w-full sm:w-auto border-t sm:border-t-0 pt-3 sm:pt-0 border-stone-200/50 dark:border-white/10 mt-2 sm:mt-0 gap-3">
                     <div className="text-left sm:text-right">
-                      <span className="block text-[9px] text-[#C96B2C] font-bold uppercase tracking-wider font-mono">Price</span>
-                      <span className="text-lg font-bold text-[#1F4D3A] font-mono">
+                      <span className="block text-[9px] text-[#9B6338] font-bold uppercase tracking-wider font-mono">Price</span>
+                      <span className="text-lg font-bold text-[#0E251D] dark:text-[#8D5A34] font-mono">
                         {hike.price}
                       </span>
                     </div>

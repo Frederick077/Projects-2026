@@ -56,15 +56,15 @@ export default function GallerySection({ onOpenBooking }: GallerySectionProps) {
   const currentItem = lightboxIndex !== null ? filteredItems[lightboxIndex] : null;
 
   return (
-    <section id="gallery" className="py-20 bg-[#F5F1E8] text-[#2B2B2B] scroll-mt-20">
+    <section id="gallery" className="py-20 bg-[#EFECE3] text-[#2B2B2B] scroll-mt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Title */}
         <div className="text-center max-w-3xl mx-auto mb-12">
-          <span className="text-xs font-bold tracking-widest text-[#C96B2C] uppercase block mb-3 font-mono">
+          <span className="text-xs font-bold tracking-widest text-[#9B6338] uppercase block mb-3 font-mono">
             Memories Capture ✨
           </span>
-          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-[#1F4D3A] mb-4">
+          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-[#0E251D] mb-4">
             Our Adventure Gallery
           </h2>
           <p className="text-base sm:text-lg text-[#2B2B2B]/75 leading-relaxed">
@@ -83,8 +83,8 @@ export default function GallerySection({ onOpenBooking }: GallerySectionProps) {
               }}
               className={`px-4 py-2 rounded-full text-xs font-semibold tracking-wider font-sans transition-all duration-300 uppercase cursor-pointer ${
                 selectedCategory === cat.id
-                  ? 'bg-[#1F4D3A] text-[#C9A227] shadow-md border-b-2 border-[#C9A227]'
-                  : 'bg-white text-[#1F4D3A] hover:bg-[#1F4D3A]/5 border border-gray-200/80 hover:border-[#1F4D3A]/20'
+                  ? 'bg-[#0E251D] text-[#8D5A34] shadow-md border-b-2 border-[#8D5A34]'
+                  : 'bg-white text-[#0E251D] hover:bg-[#0E251D]/5 border border-gray-200/80 hover:border-[#0E251D]/20'
               }`}
             >
               {cat.name}
@@ -116,7 +116,7 @@ export default function GallerySection({ onOpenBooking }: GallerySectionProps) {
                 
                 {/* Overlay details */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-5 text-white">
-                  <div className="flex items-center gap-1.5 text-xs text-[#C9A227] tracking-wider uppercase font-mono font-bold mb-1">
+                  <div className="flex items-center gap-1.5 text-xs text-[#8D5A34] tracking-wider uppercase font-mono font-bold mb-1">
                     <Compass className="w-3.5 h-3.5" />
                     <span>{item.category}</span>
                   </div>
@@ -174,7 +174,7 @@ export default function GallerySection({ onOpenBooking }: GallerySectionProps) {
                   {/* Left arrow button */}
                   <button
                     onClick={handlePrev}
-                    className="absolute left-3 bg-black/55 hover:bg-[#C9A227] hover:text-[#1F4D3A] text-white p-2.5 rounded-full transition-colors cursor-pointer"
+                    className="absolute left-3 bg-black/55 hover:bg-[#8D5A34] hover:text-[#0E251D] text-white p-2.5 rounded-full transition-colors cursor-pointer"
                     aria-label="Previous pic"
                   >
                     <ChevronLeft className="w-6 h-6" />
@@ -183,7 +183,7 @@ export default function GallerySection({ onOpenBooking }: GallerySectionProps) {
                   {/* Right arrow button */}
                   <button
                     onClick={handleNext}
-                    className="absolute right-3 bg-black/55 hover:bg-[#C9A227] hover:text-[#1F4D3A] text-white p-2.5 rounded-full transition-colors cursor-pointer"
+                    className="absolute right-3 bg-black/55 hover:bg-[#8D5A34] hover:text-[#0E251D] text-white p-2.5 rounded-full transition-colors cursor-pointer"
                     aria-label="Next pic"
                   >
                     <ChevronRight className="w-6 h-6" />
@@ -192,10 +192,10 @@ export default function GallerySection({ onOpenBooking }: GallerySectionProps) {
 
                 {/* Subtitle and Dynamic Reservation Actions inside the lightbox */}
                 <div className="text-white mt-1 max-w-2xl px-2">
-                  <span className="text-[10px] sm:text-xs font-mono uppercase font-bold tracking-[0.2em] text-[#C9A227]">
+                  <span className="text-[10px] sm:text-xs font-mono uppercase font-bold tracking-[0.2em] text-[#8D5A34]">
                     Category: {currentItem.category}
                   </span>
-                  <h3 className="font-serif text-xl sm:text-2xl font-bold mt-1 text-[#F5F1E8]">
+                  <h3 className="font-serif text-xl sm:text-2xl font-bold mt-1 text-[#EFECE3]">
                     {currentItem.title}
                   </h3>
                   <p className="text-xs sm:text-sm text-gray-400 mt-1 flex items-center justify-center gap-1">
@@ -207,7 +207,7 @@ export default function GallerySection({ onOpenBooking }: GallerySectionProps) {
                   <div className="flex items-center justify-center gap-3 mt-4">
                     <button
                       onClick={closeLightbox}
-                      className="bg-[#C9A227] hover:bg-[#b08b1f] text-[#1F4D3A] font-bold text-xs uppercase tracking-wider py-2.5 px-6 rounded-lg transition-colors cursor-pointer"
+                      className="bg-[#8D5A34] hover:bg-[#724522] text-white font-bold text-xs uppercase tracking-wider py-2.5 px-6 rounded-lg transition-colors cursor-pointer"
                     >
                       Close Viewer
                     </button>

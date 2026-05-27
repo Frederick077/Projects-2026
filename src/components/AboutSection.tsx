@@ -41,30 +41,30 @@ export default function AboutSection() {
   ];
 
   return (
-    <section id="about" className="py-16 bg-gradient-to-b from-[#F5F1E8] to-[#eae5da] text-[#2B2B2B] scroll-mt-20">
+    <section id="about" className="py-16 bg-gradient-to-b from-[#EFECE3] to-[#eae5da] dark:from-[#121c17] dark:to-[#16221c] text-[#2B2B2B] dark:text-[#F5F1E8] scroll-mt-20 transition-colors duration-350">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Top Header - Centered & Clean (No Image) */}
         <div className="max-w-3xl mx-auto text-center mb-16">
-          <span className="text-xs font-bold tracking-widest text-[#C96B2C] uppercase block mb-3 font-mono">
+          <span className="text-xs font-bold tracking-widest text-[#9B6338] dark:text-[#8D5A34] uppercase block mb-3 font-mono">
             About Us
           </span>
-          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-[#1F4D3A] leading-tight mb-6">
+          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-[#0E251D] dark:text-[#F5F1E8] leading-tight mb-6">
             Your Local Experts in Safari & Hiking Adventures
           </h2>
-          <div className="space-y-4 text-base sm:text-lg text-[#2B2B2B]/80 leading-relaxed">
+          <div className="space-y-4 text-base sm:text-lg text-[#2B2B2B]/80 dark:text-stone-300 leading-relaxed">
             <p>
-              <strong>Chaka Safaris & Hiking</strong> is a locally owned tour company based in Arusha, Tanzania. We specialize in providing authentic and memorable travel experiences for visitors from around the world.
+              <strong className="text-[#0E251D] dark:text-[#8D5A34]">Chaka Safaris & Hiking</strong> is a locally owned tour company based in Arusha, Tanzania. We specialize in providing authentic and memorable travel experiences for visitors from around the world.
             </p>
-            <p className="text-sm sm:text-base text-[#2B2B2B]/75">
+            <p className="text-sm sm:text-base text-[#2B2B2B]/75 dark:text-stone-300/80">
               Our team is passionate about nature, adventure, and hospitality. Whether you want to hike to beautiful waterfalls, relax in natural hot springs, or explore Tanzania’s wildlife, we are here to make your journey safe, enjoyable, and unforgettable.
             </p>
           </div>
         </div>
 
         {/* Compressed Why Choose Us Layout */}
-        <div className="max-w-4xl mx-auto bg-white/60 backdrop-blur-md rounded-2xl p-6 sm:p-8 border border-[#1F4D3A]/5 shadow-sm mb-16">
-          <h3 className="font-serif text-xl sm:text-2xl font-bold text-[#1F4D3A] text-center mb-6">
+        <div className="max-w-4xl mx-auto bg-white/60 dark:bg-[#1a2b23] backdrop-blur-md rounded-2xl p-6 sm:p-8 border border-[#0E251D]/5 dark:border-white/10 shadow-sm mb-16">
+          <h3 className="font-serif text-xl sm:text-2xl font-bold text-[#0E251D] dark:text-[#F5F1E8] text-center mb-6">
             Why Travelers Choose Chaka Safaris
           </h3>
           
@@ -74,12 +74,12 @@ export default function AboutSection() {
               return (
                 <div
                   key={index}
-                  className="flex flex-col sm:flex-row items-center gap-3 p-3 rounded-xl hover:bg-white/80 transition-all duration-300"
+                  className="flex flex-col sm:flex-row items-center gap-3 p-3 rounded-xl hover:bg-white/85 dark:hover:bg-white/5 transition-all duration-300"
                 >
-                  <div className="bg-[#1F4D3A]/5 text-[#1F4D3A] p-2.5 rounded-lg shrink-0">
+                  <div className="bg-[#0E251D]/5 dark:bg-white/5 text-[#0E251D] dark:text-[#8D5A34] p-2.5 rounded-lg shrink-0">
                     <IconComponent className="w-5 h-5 stroke-[2]" />
                   </div>
-                  <span className="font-sans font-semibold text-xs sm:text-sm text-[#1F4D3A] text-center sm:text-left leading-tight">
+                  <span className="font-sans font-semibold text-xs sm:text-sm text-[#0E251D] dark:text-[#F5F1E8] text-center sm:text-left leading-tight">
                     {item.title}
                   </span>
                 </div>

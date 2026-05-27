@@ -25,15 +25,15 @@ const WhatsAppIcon = ({ className = "w-4 h-4" }: { className?: string }) => (
 
 export default function DayTripsSection({ onOpenBooking }: DayTripsSectionProps) {
   return (
-    <section id="day-trips" className="py-20 bg-[#F5F1E8] text-[#2B2B2B] scroll-mt-20">
+    <section id="day-trips" className="py-20 bg-[#EFECE3] text-[#2B2B2B] scroll-mt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header Block */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="text-xs font-bold tracking-widest text-[#C96B2C] uppercase block mb-3 font-mono">
+          <span className="text-xs font-bold tracking-widest text-[#9B6338] uppercase block mb-3 font-mono">
             Excursions & Transfers 🌴
           </span>
-          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-[#1F4D3A] mb-4">
+          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-[#0E251D] mb-4">
             Short Adventures from Arusha
           </h2>
           <p className="text-base sm:text-lg text-[#2B2B2B]/75 leading-relaxed">
@@ -50,7 +50,7 @@ export default function DayTripsSection({ onOpenBooking }: DayTripsSectionProps)
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.08 }}
-              className="bg-white rounded-2xl overflow-hidden border border-stone-200/80 hover:border-[#C9A227]/40 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col h-full group"
+              className="bg-white rounded-2xl overflow-hidden border border-stone-200/80 hover:border-[#8D5A34]/40 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col h-full group"
             >
               {/* Photo Area */}
               <div className="relative h-60 overflow-hidden">
@@ -63,21 +63,21 @@ export default function DayTripsSection({ onOpenBooking }: DayTripsSectionProps)
                 <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent" />
                 
                 {/* Location Badge */}
-                <div className="absolute top-4 left-4 bg-[#1F4D3A]/90 text-white backdrop-blur-md text-[10px] sm:text-xs font-semibold px-3 py-1.5 rounded-lg flex items-center gap-1 shadow-md border border-white/10">
-                  <MapPin className="w-3.5 h-3.5 text-[#C9A227] shrink-0" />
+                <div className="absolute top-4 left-4 bg-[#0E251D]/90 text-white backdrop-blur-md text-[10px] sm:text-xs font-semibold px-3 py-1.5 rounded-lg flex items-center gap-1 shadow-md border border-white/10">
+                  <MapPin className="w-3.5 h-3.5 text-[#8D5A34] shrink-0" />
                   <span className="truncate max-w-[150px]">{trip.location}</span>
                 </div>
 
                 {/* Duration Badge */}
-                <div className="absolute top-4 right-4 bg-white/95 text-[#1F4D3A] text-[10px] sm:text-xs font-bold px-3 py-1.5 rounded-lg flex items-center gap-1 shadow-md">
-                  <Clock className="w-3.5 h-3.5 text-[#C96B2C]" />
+                <div className="absolute top-4 right-4 bg-white/95 text-[#0E251D] text-[10px] sm:text-xs font-bold px-3 py-1.5 rounded-lg flex items-center gap-1 shadow-md">
+                  <Clock className="w-3.5 h-3.5 text-[#9B6338]" />
                   <span>{trip.duration}</span>
                 </div>
 
                 {/* Overlaid Best For Option */}
                 <div className="absolute bottom-4 left-4 right-4">
-                  <p className="text-[10px] text-[#C9A227] font-mono tracking-widest uppercase font-bold mb-1 flex items-center gap-1">
-                    <Sparkles className="w-3 h-3 text-[#C9A227]" /> {trip.bestFor.split(',')[0]}
+                  <p className="text-[10px] text-[#8D5A34] font-mono tracking-widest uppercase font-bold mb-1 flex items-center gap-1">
+                    <Sparkles className="w-3 h-3 text-[#8D5A34]" /> {trip.bestFor.split(',')[0]}
                   </p>
                   <h3 className="font-serif text-lg sm:text-xl font-bold text-white tracking-wide leading-tight">
                     {trip.name}
@@ -94,7 +94,7 @@ export default function DayTripsSection({ onOpenBooking }: DayTripsSectionProps)
 
                 {/* Best For Tagline */}
                 <div className="mb-5 bg-stone-50 border border-stone-200/60 rounded-xl p-3 text-xs flex flex-wrap gap-1.5 items-center">
-                  <span className="font-bold text-[#1F4D3A] font-mono text-[10px] uppercase tracking-wide shrink-0">
+                  <span className="font-bold text-[#0E251D] font-mono text-[10px] uppercase tracking-wide shrink-0">
                     🎯 Best For:
                   </span>
                   <span className="text-stone-700 font-medium">
@@ -104,13 +104,13 @@ export default function DayTripsSection({ onOpenBooking }: DayTripsSectionProps)
 
                 {/* What to Expect Bullets */}
                 <div className="mb-6">
-                  <span className="block font-mono text-[10px] uppercase tracking-wider text-[#C96B2C] font-bold mb-2.5">
+                  <span className="block font-mono text-[10px] uppercase tracking-wider text-[#9B6338] font-bold mb-2.5">
                     What to Expect:
                   </span>
                   <ul className="space-y-2">
                     {trip.included.map((item, idx) => (
                       <li key={idx} className="text-stone-600 text-xs flex items-start gap-2.5 leading-relaxed">
-                        <span className="text-[#C9A227] select-none text-[11px] mt-0.5 shrink-0">✔</span>
+                        <span className="text-[#8D5A34] select-none text-[11px] mt-0.5 shrink-0">✔</span>
                         <span>{item}</span>
                       </li>
                     ))}
@@ -124,7 +124,7 @@ export default function DayTripsSection({ onOpenBooking }: DayTripsSectionProps)
                   <div>
                     <span className="block font-sans text-[10px] text-stone-400 font-semibold uppercase tracking-wider">All-Inclusive</span>
                     <div className="flex items-baseline">
-                      <span className="font-serif text-2xl font-bold text-[#1F4D3A]">
+                      <span className="font-serif text-2xl font-bold text-[#0E251D]">
                         ${trip.price}
                       </span>
                       <span className="text-[10px] text-stone-500 font-mono ml-1 font-semibold">USD</span>

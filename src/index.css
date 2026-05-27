@@ -6,12 +6,12 @@
   --font-serif: "Playfair Display", Georgia, serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
 
-  /* Custom African Safari palette colors */
-  --color-primary: #1F4D3A; /* Dark Green */
-  --color-secondary: #C9A227; /* Safari Gold */
-  --color-accent: #C96B2C; /* Burnt Orange */
-  --color-sand: #F5F1E8; /* Sand/Beige */
-  --color-charcoal: #2B2B2B; /* Charcoal dark */
+  /* Custom African Safari palette colors matching the official Logo */
+  --color-primary: #0E251D; /* Majestic Deep Forest Logo Green */
+  --color-secondary: #8D5A34; /* Warm Earthy Mountain Brown */
+  --color-accent: #9B6338; /* Accent Brownish Copper */
+  --color-sand: #EFECE3; /* Crisp Warm Creamy Sand background matching the logo */
+  --color-charcoal: #2A2F2B; /* Charcoal dark dark green tone */
 }
 
 @layer utilities {

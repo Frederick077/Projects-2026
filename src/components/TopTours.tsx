@@ -56,18 +56,18 @@ export default function TopTours({ onOpenBooking }: TopToursProps) {
   ];
 
   return (
-    <section className="py-20 bg-white text-[#2B2B2B]">
+    <section className="py-20 bg-white dark:bg-[#121c17] text-[#2B2B2B] dark:text-[#EFECE3] transition-colors duration-350">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="text-xs font-bold tracking-widest text-[#C9A227] uppercase block mb-3 font-mono">
+          <span className="text-xs font-bold tracking-widest text-[#8D5A34] uppercase block mb-3 font-mono">
             Most Loved Experiences ⭐
           </span>
-          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-[#1F4D3A] mb-4">
+          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-[#0E251D] dark:text-[#F5F1E8] mb-4">
             Our Top Tours
           </h2>
-          <p className="text-base sm:text-lg text-[#2B2B2B]/75">
+          <p className="text-base sm:text-lg text-[#2B2B2B]/75 dark:text-stone-300">
             Highly recommended and top-rated travel packages in Tanzania, loved by adventure seekers worldwide.
           </p>
         </div>
@@ -81,50 +81,45 @@ export default function TopTours({ onOpenBooking }: TopToursProps) {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-[#F5F1E8]/50 border border-[#1F4D3A]/5 hover:border-[#C9A227]/40 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full group"
+              className="bg-[#EFECE3]/70 dark:bg-[#1a2b23] border border-[#0E251D]/10 hover:border-[#8D5A34]/50 dark:border-white/10 dark:hover:border-[#8D5A34]/50 rounded-2xl p-6 sm:p-7 shadow-xs hover:shadow-lg hover:translate-y-[-2px] transition-all duration-300 flex flex-col h-full group relative overflow-hidden"
             >
-              {/* Cover Photo */}
-              <div className="relative h-56 overflow-hidden shrink-0">
-                <img
-                  src={tour.image}
-                  alt={tour.name}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  referrerPolicy="no-referrer"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                
-                {/* Large Emoji top-left badge */}
-                <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-xs w-10 h-10 rounded-xl flex items-center justify-center shadow-md font-sans text-xl">
+              {/* Card Body - Header Emoji & Name Row */}
+              <div className="flex items-start gap-4 mb-5">
+                <div className="bg-white dark:bg-[#0E251D] border border-[#0E251D]/10 dark:border-[#8D5A34]/20 w-12 h-12 rounded-xl flex items-center justify-center shadow-xs font-sans text-2xl shrink-0 transition-transform group-hover:scale-105 duration-300">
                   {tour.emoji}
+                </div>
+                <div>
+                  <h3 className="font-serif text-lg sm:text-xl font-bold text-[#0E251D] dark:text-[#F5F1E8] leading-snug group-hover:text-[#9B6338] dark:group-hover:text-[#8D5A34] transition-colors duration-200">
+                    {tour.name}
+                  </h3>
+                  <span className="text-[10px] text-stone-500 dark:text-stone-400 font-mono tracking-widest uppercase mt-0.5 block">
+                    Tanzania Experience
+                  </span>
                 </div>
               </div>
 
-              {/* Text Area */}
-              <div className="p-6 flex flex-col flex-grow">
-                <h3 className="font-serif text-lg sm:text-xl font-bold text-[#1F4D3A] mb-3 leading-snug group-hover:text-[#C96B2C] transition-colors duration-200">
-                  {tour.name}
-                </h3>
-                
-                <p className="text-xs sm:text-sm text-[#2B2B2B]/85 leading-relaxed mb-6 flex-grow">
+              {/* Text details and perfect for */}
+              <div className="flex flex-col flex-grow">
+                <p className="text-xs sm:text-sm text-[#2B2B2B]/85 dark:text-stone-300 leading-relaxed mb-6 flex-grow">
                   {tour.desc}
                 </p>
 
                 {/* Perfect For Segment */}
-                <div className="bg-[#1F4D3A]/5 rounded-lg p-3.5 mb-6 border-l-4 border-[#C9A227]">
-                  <span className="block font-mono text-[9px] uppercase tracking-wider text-[#C96B2C] mb-1 font-bold">
+                <div className="bg-[#0E251D]/5 dark:bg-white/5 rounded-xl p-4 mb-6 border-l-4 border-[#8D5A34] shadow-2xs">
+                  <span className="block font-mono text-[9px] uppercase tracking-wider text-[#9B6338] dark:text-[#8D5A34] mb-1 font-bold">
                     Perfect for:
                   </span>
-                  <span className="text-xs sm:text-sm font-semibold text-[#1F4D3A]">
+                  <span className="text-xs sm:text-sm font-semibold text-[#0E251D] dark:text-[#F5F1E8]/90">
                     {tour.perfectFor}
                   </span>
                 </div>
 
-                <div className="h-[1px] bg-[#1F4D3A]/10 w-full mb-4 mt-auto" />
+                <div className="h-[1px] bg-[#0E251D]/10 dark:bg-white/10 w-full mb-4 mt-auto" />
 
                 {/* Card Action Link or Button */}
                 <div className="flex items-center justify-between mt-auto">
-                  <span className="text-xs text-stone-500 font-medium">✨ Bestseller Local Adventure</span>
-                  <span className="text-[#C9A227] font-mono text-xs font-bold uppercase tracking-wider">Arusha Outing</span>
+                  <span className="text-xs text-stone-500 dark:text-stone-400 font-medium">✨ Bestseller Local Adventure</span>
+                  <span className="text-[#8D5A34] font-mono text-xs font-bold uppercase tracking-wider">Arusha Outing</span>
                 </div>
               </div>
             </motion.div>
