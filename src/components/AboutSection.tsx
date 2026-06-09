@@ -3,40 +3,36 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { Users, Mountain, Sparkles, Heart, ShieldCheck, Camera, Quote } from 'lucide-react';
-import { motion } from 'motion/react';
+import { Users, Mountain, Sparkles, Heart, ShieldCheck, Camera } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function AboutSection() {
+  const { t } = useLanguage();
+  
   const whyChooseUs = [
     {
       icon: Users,
-      title: 'Experienced Local Guides',
-      desc: 'Our certified, English-speaking guides are native Tanzanians who know every secret animal pathway and mountain slope.',
+      title: t('about.why.guides'),
     },
     {
       icon: Mountain,
-      title: 'High Summit Success Rate',
-      desc: 'With safety-first protocols, pulse checks, and structured pacing, we guide hundreds of climbers happily to Uhuru Peak.',
+      title: t('about.why.success'),
     },
     {
       icon: Sparkles,
-      title: 'Affordable & Flexible',
-      desc: 'Premium customizable itineraries and flexible payment plans tailored perfectly to your individual budget limits.',
+      title: t('about.why.flexible'),
     },
     {
       icon: Heart,
-      title: 'Personalized Service',
-      desc: 'From initial call to safari wrap-up, you will be accompanied by genuine Tanzanian hospitality (Karibu Sana!).',
+      title: t('about.why.service'),
     },
     {
       icon: ShieldCheck,
-      title: 'Safe & Reliable Transport',
-      desc: 'We maintain our own luxury customized 4x4 open-roof safari Land Cruisers and secure private transfers 24/7.',
+      title: t('about.why.transport'),
     },
     {
       icon: Camera,
-      title: 'Authentic Experiences',
-      desc: 'Cultural integrations, traditional Chagga coffee-making chants, and ethical wild encounters that touch your soul.',
+      title: t('about.why.authentic'),
     },
   ];
 
@@ -47,17 +43,17 @@ export default function AboutSection() {
         {/* Top Header - Centered & Clean (No Image) */}
         <div className="max-w-3xl mx-auto text-center mb-16">
           <span className="text-xs font-bold tracking-widest text-[#9B6338] dark:text-[#8D5A34] uppercase block mb-3 font-mono">
-            About Us
+            {t('about.badge')}
           </span>
           <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-[#0E251D] dark:text-[#F5F1E8] leading-tight mb-6">
-            Your Local Experts in Safari & Hiking Adventures
+            {t('about.title')}
           </h2>
           <div className="space-y-4 text-base sm:text-lg text-[#2B2B2B]/80 dark:text-stone-300 leading-relaxed">
             <p>
-              <strong className="text-[#0E251D] dark:text-[#8D5A34]">Chaka Safaris & Hiking</strong> is a locally owned tour company based in Arusha, Tanzania. We specialize in providing authentic and memorable travel experiences for visitors from around the world.
+              <strong className="text-[#0E251D] dark:text-[#8D5A34]">{t('nav.home') === 'Home' ? 'Chaka Safaris & Hiking' : 'Chaka Safaris & Hiking'}</strong> {t('about.lead1').replace('Chaka Safaris & Hiking ', '')}
             </p>
             <p className="text-sm sm:text-base text-[#2B2B2B]/75 dark:text-stone-300/80">
-              Our team is passionate about nature, adventure, and hospitality. Whether you want to hike to beautiful waterfalls, relax in natural hot springs, or explore Tanzania’s wildlife, we are here to make your journey safe, enjoyable, and unforgettable.
+              {t('about.lead2')}
             </p>
           </div>
         </div>
@@ -65,7 +61,7 @@ export default function AboutSection() {
         {/* Compressed Why Choose Us Layout */}
         <div className="max-w-4xl mx-auto bg-white/60 dark:bg-[#1a2b23] backdrop-blur-md rounded-2xl p-6 sm:p-8 border border-[#0E251D]/5 dark:border-white/10 shadow-sm mb-16">
           <h3 className="font-serif text-xl sm:text-2xl font-bold text-[#0E251D] dark:text-[#F5F1E8] text-center mb-6">
-            Why Travelers Choose Chaka Safaris
+            {t('about.chooseTitle')}
           </h3>
           
           <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 justify-center">

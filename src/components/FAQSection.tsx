@@ -5,11 +5,13 @@
 
 import { useState } from 'react';
 import { HelpCircle, ChevronDown, ChevronUp } from 'lucide-react';
-import { faqItems } from '../data';
+import { useLanguage } from '../context/LanguageContext';
 import { motion, AnimatePresence } from 'motion/react';
 
 export default function FAQSection() {
   const [expandedId, setExpandedId] = useState<string | null>(null);
+  const { language, getFaqItems } = useLanguage();
+  const faqs = getFaqItems();
 
   const toggleAccordion = (id: string) => {
     setExpandedId(prev => (prev === id ? null : id));
@@ -22,19 +24,21 @@ export default function FAQSection() {
         {/* Header Title */}
         <div className="text-center mb-14">
           <span className="text-xs font-bold tracking-widest text-[#C96B2C] uppercase block mb-3 font-mono">
-            Got Questions? 🎒
+            {language === 'fr' ? 'Des Questions ? 🎒' : 'Got Questions? 🎒'}
           </span>
           <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[#1F4D3A] mb-4">
-            Frequently Asked Questions
+            {language === 'fr' ? 'Foire Aux Questions' : 'Frequently Asked Questions'}
           </h2>
           <p className="text-sm sm:text-base text-[#2B2B2B]/75 max-w-2xl mx-auto">
-            Find answers to standard inquiries about wilderness safety, acclimatization schedules, custom bookings, and the best time to explore Tanzania.
+            {language === 'fr'
+              ? 'Retrouvez les réponses à vos questions fréquentes sur la sécurité en montagne, les programmes d’acclimatation, la planification sur mesure et la meilleure période pour voyager.'
+              : 'Find answers to standard inquiries about wilderness safety, acclimatization schedules, custom bookings, and the best time to explore Tanzania.'}
           </p>
         </div>
 
         {/* Collapsible Accordion Stream */}
         <div className="space-y-4">
-          {faqItems.map((faq) => {
+          {faqs.map((faq) => {
             const isExpanded = expandedId === faq.id;
             return (
               <div

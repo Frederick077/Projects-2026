@@ -6,6 +6,7 @@
 import React, { useState } from 'react';
 import { ChevronLeft, ChevronRight, X, Maximize2, MapPin, Compass } from 'lucide-react';
 import { galleryItems } from '../data';
+import { useLanguage } from '../context/LanguageContext';
 import { motion, AnimatePresence } from 'motion/react';
 
 interface GallerySectionProps {
@@ -15,15 +16,16 @@ interface GallerySectionProps {
 export default function GallerySection({ onOpenBooking }: GallerySectionProps) {
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+  const { language } = useLanguage();
 
   const categories = [
-    { id: 'all', name: 'All Moments' },
-    { id: 'wildlife', name: 'Wildlife 🦁' },
-    { id: 'kilimanjaro', name: 'Kilimanjaro 🌋' },
-    { id: 'waterfalls', name: 'Waterfalls 💦' },
-    { id: 'hot springs', name: 'Hot Springs 🌴' },
-    { id: 'safari moments', name: 'Safari Moments 🌅' },
-    { id: 'happy travelers', name: 'Happy Travelers 🎒' },
+    { id: 'all', name: language === 'fr' ? 'Tous les Moments' : 'All Moments' },
+    { id: 'wildlife', name: language === 'fr' ? 'Vie Sauvage 🦁' : 'Wildlife 🦁' },
+    { id: 'kilimanjaro', name: language === 'fr' ? 'Kilimandjaro 🌋' : 'Kilimanjaro 🌋 font-bold' },
+    { id: 'waterfalls', name: language === 'fr' ? 'Cascades 💦' : 'Waterfalls 💦' },
+    { id: 'hot springs', name: language === 'fr' ? 'Sources Chaudes 🌴' : 'Hot Springs 🌴' },
+    { id: 'safari moments', name: language === 'fr' ? 'Instants Safari 🌅' : 'Safari Moments 🌅' },
+    { id: 'happy travelers', name: language === 'fr' ? 'Voyageurs Heureux 🎒' : 'Happy Travelers 🎒' },
   ];
 
   const filteredItems = selectedCategory === 'all'
@@ -62,13 +64,15 @@ export default function GallerySection({ onOpenBooking }: GallerySectionProps) {
         {/* Section Title */}
         <div className="text-center max-w-3xl mx-auto mb-12">
           <span className="text-xs font-bold tracking-widest text-[#9B6338] uppercase block mb-3 font-mono">
-            Memories Capture ✨
+            {language === 'fr' ? 'Instants Magiques ✨' : 'Memories Capture ✨'}
           </span>
           <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-[#0E251D] mb-4">
-            Our Adventure Gallery
+            {language === 'fr' ? 'Notre Galerie d’Aventure' : 'Our Adventure Gallery'}
           </h2>
           <p className="text-base sm:text-lg text-[#2B2B2B]/75 leading-relaxed">
-            Real action moments captured live on tour by our teams. Filter through categories to explore Tanzanian scenic beauty and authentic traveler happiness.
+            {language === 'fr'
+              ? 'Retrouvez les plus beaux clichés capturés en direct. Filtrez pour contempler la richesse des parcs nationaux et la joie sincère de nos voyageurs.'
+              : 'Real action moments captured live on tour by our teams. Filter through categories to explore Tanzanian scenic beauty and authentic traveler happiness.'}
           </p>
         </div>
 
@@ -130,7 +134,7 @@ export default function GallerySection({ onOpenBooking }: GallerySectionProps) {
 
                   <span className="self-start text-[9px] uppercase tracking-wider bg-white/10 backdrop-blur-xs py-1 px-3 rounded-md flex items-center gap-1.5">
                     <Maximize2 className="w-3.5 h-3.5" />
-                    View Detail
+                    {language === 'fr' ? 'Agrandir' : 'View Detail'}
                   </span>
                 </div>
               </motion.div>
@@ -193,7 +197,7 @@ export default function GallerySection({ onOpenBooking }: GallerySectionProps) {
                 {/* Subtitle and Dynamic Reservation Actions inside the lightbox */}
                 <div className="text-white mt-1 max-w-2xl px-2">
                   <span className="text-[10px] sm:text-xs font-mono uppercase font-bold tracking-[0.2em] text-[#8D5A34]">
-                    Category: {currentItem.category}
+                    {language === 'fr' ? 'Catégorie :' : 'Category:'} {currentItem.category}
                   </span>
                   <h3 className="font-serif text-xl sm:text-2xl font-bold mt-1 text-[#EFECE3]">
                     {currentItem.title}
@@ -209,7 +213,7 @@ export default function GallerySection({ onOpenBooking }: GallerySectionProps) {
                       onClick={closeLightbox}
                       className="bg-[#8D5A34] hover:bg-[#724522] text-white font-bold text-xs uppercase tracking-wider py-2.5 px-6 rounded-lg transition-colors cursor-pointer"
                     >
-                      Close Viewer
+                      {language === 'fr' ? 'Fermer la Galerie' : 'Close Viewer'}
                     </button>
                   </div>
                 </div>

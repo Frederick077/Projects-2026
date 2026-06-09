@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Sun, Moon } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
+import { useLanguage } from '../context/LanguageContext';
 
 // Custom designed vector brand-identical logo matching the user's official uploaded Chaka Safaris identity
 const BrandLogo = ({ className = "w-10 h-10" }) => (
@@ -44,6 +45,7 @@ interface NavbarProps {
 export default function Navbar({ onOpenBooking, currentView, onChangeView, darkMode, onToggleDarkMode }: NavbarProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { language, setLanguage, t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -59,11 +61,11 @@ export default function Navbar({ onOpenBooking, currentView, onChangeView, darkM
   }, []);
 
   const menuItems = [
-    { label: 'Home', view: 'home' },
-    { label: 'About', view: 'about' },
-    { label: 'CHAKA SAFARIS & HIKING', view: 'kilimanjaro' },
-    { label: 'MOUNTAIN EXPERIENCES', view: 'safaris' },
-    { label: 'Contact', view: 'contact' },
+    { label: t('nav.home'), view: 'home' },
+    { label: t('nav.about'), view: 'about' },
+    { label: t('nav.kilimanjaro'), view: 'kilimanjaro' },
+    { label: t('nav.safaris'), view: 'safaris' },
+    { label: t('nav.contact'), view: 'contact' },
   ];
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, view: string) => {
@@ -140,10 +142,59 @@ export default function Navbar({ onOpenBooking, currentView, onChangeView, darkM
                 )}
               </button>
             </div>
+
+            {/* Language Switcher */}
+            <div className="flex items-center gap-1.5 border-l border-white/20 pl-4">
+              <button
+                onClick={() => setLanguage('en')}
+                className={`px-2 py-1 text-xs font-mono font-bold rounded-md transition-all duration-200 cursor-pointer ${
+                  language === 'en'
+                    ? 'bg-[#8D5A34] text-white'
+                    : 'text-stone-300 hover:text-white hover:bg-white/10'
+                }`}
+              >
+                EN
+              </button>
+              <span className="text-white/30 text-xs">|</span>
+              <button
+                onClick={() => setLanguage('fr')}
+                className={`px-2 py-1 text-xs font-mono font-bold rounded-md transition-all duration-200 cursor-pointer ${
+                  language === 'fr'
+                    ? 'bg-[#8D5A34] text-white'
+                    : 'text-stone-300 hover:text-white hover:bg-white/10'
+                }`}
+              >
+                FR
+              </button>
+            </div>
           </div>
 
           {/* Mobile Hamburguer */}
           <div className="lg:hidden flex items-center gap-2">
+            {/* Language Switcher on Mobile inline */}
+            <div className="flex items-center bg-white/5 rounded-lg p-1 mr-1">
+              <button
+                onClick={() => setLanguage('en')}
+                className={`px-1.5 py-0.5 text-[10px] font-mono font-bold rounded transition-all duration-150 cursor-pointer ${
+                  language === 'en'
+                    ? 'bg-[#8D5A34] text-white'
+                    : 'text-stone-300'
+                }`}
+              >
+                EN
+              </button>
+              <button
+                onClick={() => setLanguage('fr')}
+                className={`px-1.5 py-0.5 text-[10px] font-mono font-bold rounded transition-all duration-150 cursor-pointer ${
+                  language === 'fr'
+                    ? 'bg-[#8D5A34] text-white'
+                    : 'text-stone-300'
+                }`}
+              >
+                FR
+              </button>
+            </div>
+
             {/* Dark Mode Toggle on Mobile */}
             <button
               onClick={onToggleDarkMode}

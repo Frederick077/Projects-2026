@@ -6,6 +6,7 @@
 import { useState, useEffect } from 'react';
 import { Compass, MessageSquare, ArrowDown, MapPin, Calendar, Clock, Smile, ChevronDown, Map } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
+import { useLanguage } from './context/LanguageContext';
 
 // Subcomponents imports
 import Navbar from './components/Navbar';
@@ -23,6 +24,7 @@ import Footer from './components/Footer';
 import TopTours from './components/TopTours';
 
 export default function App() {
+  const { t } = useLanguage();
   // Navigation active view state
   const [currentView, setCurrentView] = useState<string>('home');
   // Booking modal context states
@@ -98,7 +100,7 @@ export default function App() {
                 >
                   <MapPin className="w-5 h-5 text-[#8D5A34] fill-current" />
                   <span className="font-mono text-xs text-[#EFECE3] font-bold uppercase tracking-widest leading-none">
-                    Arusha, Tanzania
+                    {t('hero.badge')}
                   </span>
                 </motion.div>
 
@@ -109,7 +111,7 @@ export default function App() {
                   transition={{ duration: 0.7, delay: 0.15 }}
                   className="font-serif text-4xl sm:text-6xl md:text-7xl font-bold text-[#EFECE3] tracking-tight leading-tight sm:leading-none max-w-4xl"
                 >
-                  Explore Tanzania with <br className="hidden sm:block" />
+                  {t('hero.title')} <br className="hidden sm:block" />
                   <span className="text-[#8D5A34]">Chaka Safaris & Hiking</span>
                 </motion.h1>
 
@@ -120,7 +122,7 @@ export default function App() {
                   transition={{ duration: 0.6, delay: 0.35 }}
                   className="text-stone-200 mt-6 max-w-3xl text-base sm:text-xl leading-relaxed text-balance"
                 >
-                  Unforgettable safari and hiking experiences in the heart of Tanzania. Discover waterfalls, wildlife, hot springs, and authentic local culture with trusted local guides.
+                  {t('hero.subtitle')}
                 </motion.p>
 
                 {/* Action CTAs Button row */}
@@ -135,7 +137,7 @@ export default function App() {
                     onClick={handleScrollDown}
                     className="w-full sm:w-auto bg-[#8D5A34] hover:bg-[#724522] active:scale-95 text-white font-bold text-sm uppercase tracking-wider py-4 px-8 rounded-lg shadow-xl hover:shadow-[#8D5A34]/25 transition-all duration-300 cursor-pointer"
                   >
-                    Explore Our Tours
+                    {t('hero.exploreBttn')}
                   </button>
 
                   {/* WhatsApp Callout Action */}
@@ -146,7 +148,7 @@ export default function App() {
                     className="w-full sm:w-auto bg-transparent hover:bg-white/10 active:scale-95 text-white font-bold text-sm uppercase tracking-wider py-4 px-8 rounded-lg border-2 border-white/40 hover:border-white transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer"
                   >
                     <MessageSquare className="w-5 h-5 text-[#25D366] fill-[#25D366]" />
-                    <span>Chat on WhatsApp</span>
+                    <span>{t('hero.whatsappBttn')}</span>
                   </a>
                 </motion.div>
 
@@ -183,11 +185,11 @@ export default function App() {
                   >
                     <span className="font-serif text-3xl sm:text-5xl text-[#8D5A34] leading-none block mb-4">“</span>
                     <h4 className="font-serif text-xl sm:text-2xl md:text-3xl italic font-bold max-w-4xl mx-auto leading-tight mb-6 text-white text-balance">
-                      “We don’t just offer tours — we create lifetime experiences.”
+                      {t('quote.quote')}
                     </h4>
                     <div className="w-20 h-1 bg-[#8D5A34] mx-auto mb-4" />
                     <p className="text-[#EFECE3]/70 font-mono uppercase text-xs tracking-[0.25em]">
-                      Chaka Safaris & Hiking Team • Arusha, Tanzania
+                      {t('quote.author')}
                     </p>
                   </motion.div>
                 </div>
@@ -201,13 +203,13 @@ export default function App() {
                 <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
                   <div className="text-center max-w-3xl mx-auto mb-16">
                     <span className="text-xs font-bold tracking-widest text-[#9B6338] dark:text-[#8D5A34] uppercase inline-flex items-center gap-2 mb-3 font-mono">
-                      <Map className="w-4 h-4 text-[#9B6338] dark:text-[#8D5A34]" /> Smooth Process
+                      <Map className="w-4 h-4 text-[#9B6338] dark:text-[#8D5A34]" /> {t('how.badge')}
                     </span>
                     <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-[#0E251D] dark:text-[#F5F1E8] mb-4">
-                      How to Book
+                      {t('how.title')}
                     </h2>
                     <p className="text-base sm:text-lg text-[#2B2B2B]/75 dark:text-stone-300">
-                      Booking your trip with us is simple:
+                      {t('how.subtitle')}
                     </p>
                   </div>
 
@@ -221,8 +223,8 @@ export default function App() {
                         <Compass className="w-7 h-7 stroke-[1.8]" />
                         <span className="absolute -top-1 -right-1 w-6 h-6 rounded-full bg-[#0E251D] dark:bg-[#8D5A34] text-white dark:text-[#0E251D] text-xs font-mono font-bold flex items-center justify-center">1</span>
                       </div>
-                      <h3 className="font-serif font-bold text-[#0E251D] dark:text-[#EFECE3] text-base mb-2">Choose your favorite tour</h3>
-                      <p className="text-xs text-[#2B2B2B]/75 dark:text-stone-300">Pick from our curated waterfalls, wild safaris, local hikes or customize one!</p>
+                      <h3 className="font-serif font-bold text-[#0E251D] dark:text-[#EFECE3] text-base mb-2">{t('how.step1.title')}</h3>
+                      <p className="text-xs text-[#2B2B2B]/75 dark:text-stone-300">{t('how.step1.desc')}</p>
                     </div>
 
                     {/* Step 2 */}
@@ -231,8 +233,8 @@ export default function App() {
                         <MessageSquare className="w-7 h-7 stroke-[1.8]" />
                         <span className="absolute -top-1 -right-1 w-6 h-6 rounded-full bg-[#0E251D] dark:bg-[#8D5A34] text-white dark:text-[#0E251D] text-xs font-mono font-bold flex items-center justify-center">2</span>
                       </div>
-                      <h3 className="font-serif font-bold text-[#0E251D] dark:text-[#EFECE3] text-base mb-2">Contact us via WhatsApp or Email</h3>
-                      <p className="text-xs text-[#2B2B2B]/75 dark:text-stone-300">Send us a direct message with your group details and preferred tour dates.</p>
+                      <h3 className="font-serif font-bold text-[#0E251D] dark:text-[#EFECE3] text-base mb-2">{t('how.step2.title')}</h3>
+                      <p className="text-xs text-[#2B2B2B]/75 dark:text-stone-300">{t('how.step2.desc')}</p>
                     </div>
 
                     {/* Step 3 */}
@@ -241,8 +243,8 @@ export default function App() {
                         <Calendar className="w-7 h-7 stroke-[1.8]" />
                         <span className="absolute -top-1 -right-1 w-6 h-6 rounded-full bg-[#0E251D] dark:bg-[#8D5A34] text-white dark:text-[#0E251D] text-xs font-mono font-bold flex items-center justify-center">3</span>
                       </div>
-                      <h3 className="font-serif font-bold text-[#0E251D] dark:text-[#EFECE3] text-base mb-2">Confirm your booking</h3>
-                      <p className="text-xs text-[#2B2B2B]/75 dark:text-stone-300">We will finalize all travel plans, equipment, transfers and lock in dates.</p>
+                      <h3 className="font-serif font-bold text-[#0E251D] dark:text-[#EFECE3] text-base mb-2">{t('how.step3.title')}</h3>
+                      <p className="text-xs text-[#2B2B2B]/75 dark:text-stone-300">{t('how.step3.desc')}</p>
                     </div>
 
                     {/* Step 4 */}
@@ -251,8 +253,8 @@ export default function App() {
                         <Smile className="w-7 h-7 stroke-[1.8]" />
                         <span className="absolute -top-1 -right-1 w-6 h-6 rounded-full bg-[#9B6338] text-white text-xs font-mono font-bold flex items-center justify-center">4</span>
                       </div>
-                      <h3 className="font-serif font-bold text-[#0E251D] dark:text-[#EFECE3] text-base mb-2">Enjoy your adventure!</h3>
-                      <p className="text-xs text-[#2B2B2B]/75 dark:text-stone-300">Pack your bags and meet our friendly professional local guides in Arusha.</p>
+                      <h3 className="font-serif font-bold text-[#0E251D] dark:text-[#EFECE3] text-base mb-2">{t('how.step4.title')}</h3>
+                      <p className="text-xs text-[#2B2B2B]/75 dark:text-stone-300">{t('how.step4.desc')}</p>
                     </div>
                   </div>
 
@@ -265,7 +267,7 @@ export default function App() {
                       className="inline-flex items-center gap-3 bg-[#25D366] hover:bg-[#20ba59] active:scale-95 text-white font-bold text-sm uppercase tracking-wider py-4 px-8 rounded-lg shadow-xl hover:shadow-[#25D366]/20 transition-all duration-300"
                     >
                       <MessageSquare className="w-5 h-5 fill-current" />
-                      <span>👉 Book Now via WhatsApp</span>
+                      <span>👉 {t('how.bttn')}</span>
                     </a>
                   </div>
                 </div>

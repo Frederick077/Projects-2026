@@ -6,51 +6,64 @@
 import React from 'react';
 import { Compass, Sparkles, MapPin, Smile, ArrowRight } from 'lucide-react';
 import { motion } from 'motion/react';
+import { useLanguage } from '../context/LanguageContext';
 
 interface TopToursProps {
   onOpenBooking: (packageType: string, packageName: string) => void;
 }
 
 export default function TopTours({ onOpenBooking }: TopToursProps) {
+  const { language, t } = useLanguage();
+
   const topTours = [
     {
       id: 'top-materuni',
       emoji: '🌿',
-      name: 'Materuni Waterfalls & Coffee Tour',
-      desc: 'Visit the stunning Materuni Waterfalls, enjoy a guided hike, and experience a traditional coffee-making tour with local communities.',
-      perfectFor: 'Nature lovers & cultural experiences',
+      name: language === 'fr' ? 'Chute de Materuni & Atelier Café' : 'Materuni Waterfalls & Coffee Tour',
+      desc: language === 'fr' 
+        ? 'Visitez les superbes chutes de Materuni, profitez d\'une randonnée guidée et participez à un atelier traditionnel de fabrication de café avec les communautés locales.' 
+        : 'Visit the stunning Materuni Waterfalls, enjoy a guided hike, and experience a traditional coffee-making tour with local communities.',
+      perfectFor: language === 'fr' ? 'Amoureux de la nature & expériences culturelles' : 'Nature lovers & cultural experiences',
       image: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&auto=format&fit=crop&q=80'
     },
     {
       id: 'top-chemka',
       emoji: '💧',
-      name: 'Chemka Hot Springs',
-      desc: 'Swim in the crystal-clear waters of Kikuletwa Hot Springs, surrounded by peaceful natural scenery.',
-      perfectFor: 'Relaxation & swimming',
+      name: language === 'fr' ? 'Sources Chaudes de Chemka' : 'Chemka Hot Springs',
+      desc: language === 'fr' 
+        ? 'Nagez dans les eaux cristallines des sources chaudes de Kikuletwa, entourées d\'un paysage naturel paisible.' 
+        : 'Swim in the crystal-clear waters of Kikuletwa Hot Springs, surrounded by peaceful natural scenery.',
+      perfectFor: language === 'fr' ? 'Détente & baignade' : 'Relaxation & swimming',
       image: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=800&auto=format&fit=crop&q=80'
     },
     {
       id: 'top-serval',
       emoji: '🦁',
-      name: 'Serval Wildlife Experience',
-      desc: 'Get close to wildlife at Serval Wildlife, including lions, giraffes, and other animals.',
-      perfectFor: 'Animal lovers & photography',
+      name: language === 'fr' ? 'Expérience Animalière Serval' : 'Serval Wildlife Experience',
+      desc: language === 'fr' 
+        ? 'Approchez de très près de magnifiques animaux à Serval Wildlife, comme les lions, girafes, zèbres et singes.' 
+        : 'Get close to wildlife at Serval Wildlife, including lions, giraffes, and other animals.',
+      perfectFor: language === 'fr' ? 'Amoureux des animaux & photographie' : 'Animal lovers & photography',
       image: 'https://images.unsplash.com/photo-1518887570146-0612132dd618?w=800&auto=format&fit=crop&q=80'
     },
     {
       id: 'top-arusha',
       emoji: '🌄',
-      name: 'Arusha National Park Safari',
-      desc: 'Enjoy a classic safari in Arusha National Park with breathtaking landscapes and diverse wildlife.',
-      perfectFor: 'First-time safari',
+      name: language === 'fr' ? 'Safari au Parc National d\'Arusha' : 'Arusha National Park Safari',
+      desc: language === 'fr' 
+        ? 'Profitez d\'un safari classique au parc national d\'Arusha avec des paysages à couper le souffle et une faune diversifiée.' 
+        : 'Enjoy a classic safari in Arusha National Park with breathtaking landscapes and diverse wildlife.',
+      perfectFor: language === 'fr' ? 'Premier safari en Afrique' : 'First-time safari',
       image: 'https://images.unsplash.com/photo-1516426122078-c23e76319801?w=800&auto=format&fit=crop&q=80'
     },
     {
       id: 'top-napuru',
       emoji: '🥾',
-      name: 'Napuru Waterfalls Hike',
-      desc: 'Discover hidden beauty at Napuru Waterfalls with a scenic hiking experience.',
-      perfectFor: 'Adventure seekers',
+      name: language === 'fr' ? 'Randonnée la Cascade de Napuru' : 'Napuru Waterfalls Hike',
+      desc: language === 'fr' 
+        ? 'Découvrez la beauté cachée de la cascade de Napuru au cours d\'une randonnée pittoresque en pleine jungle.' 
+        : 'Discover hidden beauty at Napuru Waterfalls with a scenic hiking experience.',
+      perfectFor: language === 'fr' ? 'Amateurs d\'aventure sauvage' : 'Adventure seekers',
       image: 'https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=800&auto=format&fit=crop&q=80'
     }
   ];
@@ -62,13 +75,15 @@ export default function TopTours({ onOpenBooking }: TopToursProps) {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <span className="text-xs font-bold tracking-widest text-[#8D5A34] uppercase block mb-3 font-mono">
-            Most Loved Experiences ⭐
+            {language === 'fr' ? 'Expériences les Plus Aimées ⭐' : 'Most Loved Experiences ⭐'}
           </span>
           <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-[#0E251D] dark:text-[#F5F1E8] mb-4">
-            Our Top Tours
+            {language === 'fr' ? 'Nos Plus Beaux Circuits' : 'Our Top Tours'}
           </h2>
           <p className="text-base sm:text-lg text-[#2B2B2B]/75 dark:text-stone-300">
-            Highly recommended and top-rated travel packages in Tanzania, loved by adventure seekers worldwide.
+            {language === 'fr' 
+              ? 'Formules de voyage tanzaniennes hautement recommandées et plébiscitées partout dans le monde.' 
+              : 'Highly recommended and top-rated travel packages in Tanzania, loved by adventure seekers worldwide.'}
           </p>
         </div>
 
@@ -93,7 +108,7 @@ export default function TopTours({ onOpenBooking }: TopToursProps) {
                     {tour.name}
                   </h3>
                   <span className="text-[10px] text-stone-500 dark:text-stone-400 font-mono tracking-widest uppercase mt-0.5 block">
-                    Tanzania Experience
+                    {language === 'fr' ? 'Expérience en Tanzanie' : 'Tanzania Experience'}
                   </span>
                 </div>
               </div>
@@ -107,7 +122,7 @@ export default function TopTours({ onOpenBooking }: TopToursProps) {
                 {/* Perfect For Segment */}
                 <div className="bg-[#0E251D]/5 dark:bg-white/5 rounded-xl p-4 mb-6 border-l-4 border-[#8D5A34] shadow-2xs">
                   <span className="block font-mono text-[9px] uppercase tracking-wider text-[#9B6338] dark:text-[#8D5A34] mb-1 font-bold">
-                    Perfect for:
+                    {language === 'fr' ? 'Idéal pour :' : 'Perfect for:'}
                   </span>
                   <span className="text-xs sm:text-sm font-semibold text-[#0E251D] dark:text-[#F5F1E8]/90">
                     {tour.perfectFor}
@@ -118,8 +133,12 @@ export default function TopTours({ onOpenBooking }: TopToursProps) {
 
                 {/* Card Action Link or Button */}
                 <div className="flex items-center justify-between mt-auto">
-                  <span className="text-xs text-stone-500 dark:text-stone-400 font-medium">✨ Bestseller Local Adventure</span>
-                  <span className="text-[#8D5A34] font-mono text-xs font-bold uppercase tracking-wider">Arusha Outing</span>
+                  <span className="text-xs text-stone-500 dark:text-stone-400 font-medium">
+                    {language === 'fr' ? '✨ Succès local garanti' : '✨ Bestseller Local Adventure'}
+                  </span>
+                  <span className="text-[#8D5A34] font-mono text-xs font-bold uppercase tracking-wider">
+                    {language === 'fr' ? 'Excursion Arusha' : 'Arusha Outing'}
+                  </span>
                 </div>
               </div>
             </motion.div>

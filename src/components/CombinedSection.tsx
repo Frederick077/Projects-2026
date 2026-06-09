@@ -4,7 +4,7 @@
  */
 
 import { Sparkles, Calendar, ArrowRight, Camera } from 'lucide-react';
-import { combinedPackages } from '../data';
+import { useLanguage } from '../context/LanguageContext';
 import { motion } from 'motion/react';
 
 interface CombinedSectionProps {
@@ -12,6 +12,8 @@ interface CombinedSectionProps {
 }
 
 export default function CombinedSection({ onOpenBooking }: CombinedSectionProps) {
+  const { language, t, getCombinedPackages } = useLanguage();
+  const packages = getCombinedPackages();
   return (
     <section id="combined" className="py-20 bg-white text-[#2B2B2B] scroll-mt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -19,19 +21,21 @@ export default function CombinedSection({ onOpenBooking }: CombinedSectionProps)
         {/* Header Title */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <span className="text-xs font-bold tracking-widest text-[#8D5A34] uppercase block mb-3 font-mono">
-            Combined Package Bundles 🗺️
+            {language === 'fr' ? 'Forfaits Combinés Tout En Un 🗺️' : 'Combined Package Bundles 🗺️'}
           </span>
           <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-[#0E251D] mb-4">
-            Ultimate Tanzania Experiences
+            {language === 'fr' ? 'L’Expérience Ultime en Tanzanie' : 'Ultimate Tanzania Experiences'}
           </h2>
           <p className="text-base sm:text-lg text-[#2B2B2B]/75 leading-relaxed">
-            Maximize your African journey by combining active alpine conquests with magical wildlife drives or relaxing nature day trips, all consolidated into a single premium planned itinerary.
+            {language === 'fr'
+              ? 'Maximisez votre voyage en combinant l’ascension de sommets alpins avec des safaris magiques ou de relaxantes excursions d’un jour, le tout regroupé dans un seul magnifique itinéraire.'
+              : 'Maximize your African journey by combining active alpine conquests with magical wildlife drives or relaxing nature day trips, all consolidated into a single premium planned itinerary.'}
           </p>
         </div>
 
         {/* Bundle Grid Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
-          {combinedPackages.map((pkg, index) => (
+          {packages.map((pkg, index) => (
             <motion.div
               key={pkg.id}
               initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
@@ -56,7 +60,7 @@ export default function CombinedSection({ onOpenBooking }: CombinedSectionProps)
                 {pkg.isBestSeller && (
                   <div className="absolute top-4 left-4 bg-[#9B6338] text-white text-[9px] font-bold uppercase tracking-wider px-3 py-1.5 rounded shadow-sm flex items-center gap-1">
                     <Sparkles className="w-3 h-3 fill-current" />
-                    <span>Best Seller</span>
+                    <span>{language === 'fr' ? 'Meilleure Vente' : 'Best Seller'}</span>
                   </div>
                 )}
               </div>
@@ -68,7 +72,7 @@ export default function CombinedSection({ onOpenBooking }: CombinedSectionProps)
                   {/* Duration Capsule */}
                   <div className="flex items-center gap-1.5 text-xs font-mono text-[#9B6338] font-semibold mb-3">
                     <Calendar className="w-4 h-4" />
-                    <span>{pkg.duration}</span>
+                    <span>{language === 'fr' ? pkg.duration.replace('Days', 'Jours').replace('Day', 'Jour') : pkg.duration}</span>
                   </div>
 
                   {/* Title */}
@@ -85,7 +89,7 @@ export default function CombinedSection({ onOpenBooking }: CombinedSectionProps)
                 {/* Bottom Row price/button */}
                 <div className="flex items-center justify-between mt-auto pt-4 border-t border-[#0E251D]/5">
                   <div>
-                    <span className="text-[10px] text-gray-400 block font-sans">Starting from</span>
+                    <span className="text-[10px] text-gray-400 block font-sans">{language === 'fr' ? 'À partir de' : 'Starting from'}</span>
                     <span className="font-serif text-xl sm:text-2xl font-bold text-[#0E251D]">
                       ${pkg.price.toLocaleString()}
                     </span>
@@ -93,7 +97,7 @@ export default function CombinedSection({ onOpenBooking }: CombinedSectionProps)
                   </div>
 
                   <span className="text-emerald-800 text-xs font-mono font-bold uppercase tracking-wider">
-                    All-Inclusive
+                    {language === 'fr' ? 'Tout Inclus' : 'All-Inclusive'}
                   </span>
                 </div>
 
@@ -103,8 +107,7 @@ export default function CombinedSection({ onOpenBooking }: CombinedSectionProps)
           ))}
         </div>
 
-        {/* Feature photographer camera banner:
-            "We capture your best travel moments 📸 so you keep memories forever." */}
+        {/* Feature photographer camera banner */}
         <div className="bg-[#0E251D] text-white rounded-2xl p-6 sm:p-8 relative overflow-hidden shadow-lg border border-[#8D5A34]/40">
           <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="flex items-center gap-4">
@@ -113,16 +116,18 @@ export default function CombinedSection({ onOpenBooking }: CombinedSectionProps)
               </div>
               <div>
                 <h4 className="font-serif text-lg sm:text-xl font-bold text-[#EFECE3]">
-                  Capturing your best travel moments
+                  {language === 'fr' ? 'Nous immortalisons vos plus beaux souvenirs' : 'Capturing your best travel moments'}
                 </h4>
                 <p className="text-xs sm:text-sm text-[#EFECE3]/75">
-                  Our professional guides are skilled travel photographers. We carry premium cameras to take pristine action edits of your mountain climbs, hot springs rope swings, and predator safaris so you store memories forever. 📸
+                  {language === 'fr'
+                    ? 'Nos guides experts sont de brillants photographes de voyage. Nous sommes équipés d’appareils photos haut de gamme afin de capturer vos plus beaux exploits, que ce soit à l’ascension du toit de l’Afrique, lors de plongeons dans les sources bleues ou au milieu des prédateurs en safari, vous permettant de conserver des souvenirs inoubliables. 📸'
+                    : 'Our professional guides are skilled travel photographers. We carry premium cameras to take pristine action edits of your mountain climbs, hot springs rope swings, and predator safaris so you store memories forever. 📸'}
                 </p>
               </div>
             </div>
             
             <span className="shrink-0 font-mono text-[10px] sm:text-xs uppercase bg-[#8D5A34]/15 text-[#8D5A34] rounded-full border border-[#8D5A34]/40 px-5 py-2.5 tracking-wider font-bold">
-              Included Free In All Premium Bookings
+              {language === 'fr' ? 'Inclus Gratuitement Dans Nos Forfaits' : 'Included Free In All Premium Bookings'}
             </span>
           </div>
 

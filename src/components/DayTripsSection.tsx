@@ -4,7 +4,7 @@
  */
 
 import { Clock, MapPin, Sparkles } from 'lucide-react';
-import { dayTrips } from '../data';
+import { useLanguage } from '../context/LanguageContext';
 import { motion } from 'motion/react';
 
 interface DayTripsSectionProps {
@@ -24,6 +24,9 @@ const WhatsAppIcon = ({ className = "w-4 h-4" }: { className?: string }) => (
 );
 
 export default function DayTripsSection({ onOpenBooking }: DayTripsSectionProps) {
+  const { getDayTrips, language } = useLanguage();
+  const trips = getDayTrips();
+
   return (
     <section id="day-trips" className="py-20 bg-[#EFECE3] text-[#2B2B2B] scroll-mt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -31,19 +34,21 @@ export default function DayTripsSection({ onOpenBooking }: DayTripsSectionProps)
         {/* Header Block */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <span className="text-xs font-bold tracking-widest text-[#9B6338] uppercase block mb-3 font-mono">
-            Excursions & Transfers 🌴
+            {language === 'fr' ? 'Excursions & Transferts d’un Jour 🌴' : 'Excursions & Transfers 🌴'}
           </span>
           <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-[#0E251D] mb-4">
-            Short Adventures from Arusha
+            {language === 'fr' ? 'Courtes Aventures depuis Arusha' : 'Short Adventures from Arusha'}
           </h2>
           <p className="text-base sm:text-lg text-[#2B2B2B]/75 leading-relaxed">
-            Short on time? Discover incredible waterfalls, therapeutic hot springs, ethical wildlife feeding sanctuaries, or culture city walks surrounding the mountain town of Arusha.
+            {language === 'fr'
+              ? 'Manque de temps ? Découvrez d’incroyables chutes d’eau, des sources thermales thérapeutiques, des sanctuaires fauniques éthiques ou des visites guidées de la ville d’Arusha.'
+              : 'Short on time? Discover incredible waterfalls, therapeutic hot springs, ethical wildlife feeding sanctuaries, or culture city walks surrounding the mountain town of Arusha.'}
           </p>
         </div>
 
         {/* Excursions Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {dayTrips.map((trip, index) => (
+          {trips.map((trip, index) => (
             <motion.div
               key={trip.id}
               initial={{ opacity: 0, y: 30 }}
@@ -71,13 +76,13 @@ export default function DayTripsSection({ onOpenBooking }: DayTripsSectionProps)
                 {/* Duration Badge */}
                 <div className="absolute top-4 right-4 bg-white/95 text-[#0E251D] text-[10px] sm:text-xs font-bold px-3 py-1.5 rounded-lg flex items-center gap-1 shadow-md">
                   <Clock className="w-3.5 h-3.5 text-[#9B6338]" />
-                  <span>{trip.duration}</span>
+                  <span>{language === 'fr' ? trip.duration.replace('Day', 'Jour').replace('Hours', 'Heures').replace('Transfer', 'Transfert') : trip.duration}</span>
                 </div>
 
                 {/* Overlaid Best For Option */}
                 <div className="absolute bottom-4 left-4 right-4">
                   <p className="text-[10px] text-[#8D5A34] font-mono tracking-widest uppercase font-bold mb-1 flex items-center gap-1">
-                    <Sparkles className="w-3 h-3 text-[#8D5A34]" /> {trip.bestFor.split(',')[0]}
+                    <Sparkles className="w-3 h-3 text-[#8D5A34]" /> {language === 'fr' ? 'Aventure locale' : trip.bestFor.split(',')[0]}
                   </p>
                   <h3 className="font-serif text-lg sm:text-xl font-bold text-white tracking-wide leading-tight">
                     {trip.name}
@@ -95,23 +100,29 @@ export default function DayTripsSection({ onOpenBooking }: DayTripsSectionProps)
                 {/* Best For Tagline */}
                 <div className="mb-5 bg-stone-50 border border-stone-200/60 rounded-xl p-3 text-xs flex flex-wrap gap-1.5 items-center">
                   <span className="font-bold text-[#0E251D] font-mono text-[10px] uppercase tracking-wide shrink-0">
-                    🎯 Best For:
+                    {language === 'fr' ? '🎯 Recommandé :' : '🎯 Best For:'}
                   </span>
                   <span className="text-stone-700 font-medium">
-                    {trip.bestFor}
+                    {language === 'fr' ? 'Loisir & Détente, Exploration culturelle' : trip.bestFor}
                   </span>
                 </div>
 
                 {/* What to Expect Bullets */}
                 <div className="mb-6">
                   <span className="block font-mono text-[10px] uppercase tracking-wider text-[#9B6338] font-bold mb-2.5">
-                    What to Expect:
+                    {language === 'fr' ? 'Inclus :' : 'What to Expect:'}
                   </span>
                   <ul className="space-y-2">
                     {trip.included.map((item, idx) => (
                       <li key={idx} className="text-stone-600 text-xs flex items-start gap-2.5 leading-relaxed">
                         <span className="text-[#8D5A34] select-none text-[11px] mt-0.5 shrink-0">✔</span>
-                        <span>{item}</span>
+                        <span>{language === 'fr' ? (
+                          item.includes('Transfer') ? 'Transferts privés confortables' :
+                          item.includes('Entry') ? 'Frais d’entrée et permis' :
+                          item.includes('lunch') ? 'Déjeuner chaud ou panier-repas' :
+                          item.includes('Water') ? 'Eau minérale glacée' :
+                          item.includes('Guide') ? 'Guide local professionnel et certifié' : item
+                        ) : item}</span>
                       </li>
                     ))}
                   </ul>
@@ -122,7 +133,7 @@ export default function DayTripsSection({ onOpenBooking }: DayTripsSectionProps)
                 {/* Bottom Row - Price & direct WhatsApp Inquire */}
                 <div className="flex items-center justify-between gap-4">
                   <div>
-                    <span className="block font-sans text-[10px] text-stone-400 font-semibold uppercase tracking-wider">All-Inclusive</span>
+                    <span className="block font-sans text-[10px] text-stone-400 font-semibold uppercase tracking-wider">{language === 'fr' ? 'Tout Inclus' : 'All-Inclusive'}</span>
                     <div className="flex items-baseline">
                       <span className="font-serif text-2xl font-bold text-[#0E251D]">
                         ${trip.price}
@@ -138,7 +149,7 @@ export default function DayTripsSection({ onOpenBooking }: DayTripsSectionProps)
                     className="bg-[#25D366] hover:bg-[#20ba59] active:scale-95 text-white font-bold text-xs uppercase tracking-wider py-2.5 px-4.5 rounded-lg shadow-sm hover:shadow-[#25D366]/20 transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer border border-[#25D366]/10 shrink-0"
                   >
                     <WhatsAppIcon className="w-4 h-4 fill-white" />
-                    <span>Inquire</span>
+                    <span>{language === 'fr' ? 'S’informer' : 'Inquire'}</span>
                   </a>
                 </div>
               </div>

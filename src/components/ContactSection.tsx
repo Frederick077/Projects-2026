@@ -5,12 +5,15 @@
 
 import React from 'react';
 import { Mail, Phone, MapPin, Compass, Facebook, Instagram, Twitter } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 interface ContactSectionProps {
   onOpenBooking?: (packageType?: string, packageName?: string) => void;
 }
 
 export default function ContactSection({ onOpenBooking }: ContactSectionProps) {
+  const { t, language } = useLanguage();
+
   return (
     <section id="contact" className="py-20 bg-[#EFECE3] text-[#2B2B2B] scroll-mt-20">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -18,13 +21,13 @@ export default function ContactSection({ onOpenBooking }: ContactSectionProps) {
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-12">
           <span className="text-xs font-bold tracking-widest text-[#9B6338] uppercase block mb-3 font-mono">
-            Get In Touch 📍
+            {t('contact.badge')}
           </span>
           <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-[#0E251D] mb-4">
-            Contact Chaka Safaris
+            {t('contact.title')}
           </h2>
           <p className="text-sm sm:text-base text-[#2B2B2B]/75">
-            Connect directly with or visit our office team in Arusha, Tanzania to plan your classic trek or bespoke safari holiday.
+            {t('contact.subtitle')}
           </p>
         </div>
 
@@ -36,10 +39,10 @@ export default function ContactSection({ onOpenBooking }: ContactSectionProps) {
             </div>
             <div>
               <h3 className="font-serif text-2xl font-bold text-[#0E251D] leading-none mb-1">
-                Chaka Safaris Office
+                {t('contact.card.title')}
               </h3>
               <span className="text-[10px] text-[#9B6338] font-mono tracking-widest uppercase">
-                Arusha, Tanzania
+                {t('contact.card.loc')}
               </span>
             </div>
           </div>
@@ -51,9 +54,9 @@ export default function ContactSection({ onOpenBooking }: ContactSectionProps) {
                 <MapPin className="w-5 h-5 text-[#9B6338]" />
               </div>
               <div>
-                <span className="block text-[10px] uppercase font-mono tracking-wider text-gray-400">Headquarters Location</span>
-                <strong className="block text-sm sm:text-base text-[#0E251D] mt-0.5">Saba Saba Road, Arusha, Tanzania</strong>
-                <span className="text-xs text-gray-500 block mt-0.5">Opposite Arusha Cultural Museum (Gate #3)</span>
+                <span className="block text-[10px] uppercase font-mono tracking-wider text-gray-400">{t('contact.label.loc')}</span>
+                <strong className="block text-sm sm:text-base text-[#0E251D] mt-0.5">{t('contact.val.loc')}</strong>
+                <span className="text-xs text-gray-500 block mt-0.5">{t('contact.val.loc_sub')}</span>
               </div>
             </li>
 
@@ -63,7 +66,7 @@ export default function ContactSection({ onOpenBooking }: ContactSectionProps) {
                 <Phone className="w-5 h-5 text-[#8D5A34]" />
               </div>
               <div>
-                <span className="block text-[10px] uppercase font-mono tracking-wider text-gray-400">WhatsApp and Mobile Call</span>
+                <span className="block text-[10px] uppercase font-mono tracking-wider text-gray-400">{t('contact.label.phone')}</span>
                 <a
                   href="https://wa.me/255714998804?text=Hi%20Chaka%20Safaris%20and%20Hiking!%20I%2520am%2520interested%2520in%2520booking%2520a%2520tour."
                   target="_blank"
@@ -72,7 +75,9 @@ export default function ContactSection({ onOpenBooking }: ContactSectionProps) {
                 >
                   +255 714 998 804
                 </a>
-                <span className="text-xs text-gray-500 block mt-0.5">Call active 24/7 (Local Arusha timezone)</span>
+                <span className="text-xs text-gray-500 block mt-0.5">
+                  {language === 'fr' ? 'Ligne active 24h/24 et 7j/7 (fuseau horaire d\'Arusha)' : 'Call active 24/7 (Local Arusha timezone)'}
+                </span>
               </div>
             </li>
 
@@ -82,7 +87,7 @@ export default function ContactSection({ onOpenBooking }: ContactSectionProps) {
                 <Mail className="w-5 h-5 text-[#0E251D]" />
               </div>
               <div>
-                <span className="block text-[10px] uppercase font-mono tracking-wider text-gray-400">Official Email handles</span>
+                <span className="block text-[10px] uppercase font-mono tracking-wider text-gray-400">{t('contact.label.email')}</span>
                 <a
                   href="mailto:info@chakasafaris.com"
                   className="block text-[#0E251D] font-bold hover:text-[#9B6338] mt-0.5 transition-colors text-sm sm:text-base"
@@ -99,8 +104,12 @@ export default function ContactSection({ onOpenBooking }: ContactSectionProps) {
           {/* Social Channels */}
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
             <div>
-              <span className="block text-[10px] uppercase font-mono tracking-wider text-gray-400 mb-1">Our Social Channels</span>
-              <span className="text-xs text-gray-500">Follow our daily hiking moments</span>
+              <span className="block text-[10px] uppercase font-mono tracking-wider text-gray-400 mb-1">
+                {language === 'fr' ? 'Nos Réseaux Sociaux' : 'Our Social Channels'}
+              </span>
+              <span className="text-xs text-gray-500">
+                {language === 'fr' ? 'Suivez nos randonnées quotidiennes' : 'Follow our daily hiking moments'}
+              </span>
             </div>
             <div className="flex gap-2.5">
               {[
