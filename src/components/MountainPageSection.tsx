@@ -5,6 +5,7 @@
 
 import React from 'react';
 import { MapPin, CheckCircle, Flame, Star, Compass, ArrowRight, CornerDownRight } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 import { motion } from 'motion/react';
 
 // Custom clean WhatsApp icon SVG
@@ -24,6 +25,7 @@ interface MountainPageSectionProps {
 }
 
 export default function MountainPageSection({ onOpenBooking }: MountainPageSectionProps) {
+  const { language } = useLanguage();
   return (
     <div id="mountain-page" className="scroll-mt-20">
       
@@ -43,15 +45,15 @@ export default function MountainPageSection({ onOpenBooking }: MountainPageSecti
           <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md rounded-full px-4 py-1.5 border border-white/20 shadow-md mb-4">
             <Compass className="w-4 h-4 text-[#8D5A34]" />
             <span className="font-mono text-[10px] text-[#EFECE3] font-bold uppercase tracking-widest">
-              Tanzania Peaks & Trails
+              {language === 'fr' ? 'Sommets & Sentiers de Tanzanie' : 'Tanzania Peaks & Trails'}
             </span>
           </div>
 
           <h1 className="font-serif text-3xl sm:text-5xl font-bold text-[#EFECE3] tracking-tight leading-none mb-3">
-            Mountain Experiences
+            {language === 'fr' ? 'Expériences de Montagne' : 'Mountain Experiences'}
           </h1>
           <p className="text-stone-300 text-sm sm:text-base font-mono uppercase tracking-widest max-w-xl text-center">
-            Mount Kilimanjaro • Mount Meru • Day Hikes
+            {language === 'fr' ? 'Mont Kilimandjaro • Mont Meru • Randonnées d’un Jour' : 'Mount Kilimanjaro • Mount Meru • Day Hikes'}
           </p>
         </div>
       </div>
@@ -73,11 +75,11 @@ export default function MountainPageSection({ onOpenBooking }: MountainPageSecti
                 <span className="text-3xl sm:text-4xl">🌄</span>
                 <div>
                   <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#0E251D] dark:text-[#F5F1E8]">
-                    Mount Kilimanjaro Climbing
+                    {language === 'fr' ? 'Ascension du Mont Kilimandjaro' : 'Mount Kilimanjaro Climbing'}
                   </h2>
                   <div className="flex items-center gap-1 text-xs text-stone-500 dark:text-stone-400 font-mono mt-0.5">
                     <MapPin className="w-3.5 h-3.5 text-[#9B6338]" />
-                    <span>Location: Mount Kilimanjaro</span>
+                    <span>{language === 'fr' ? 'Lieu : Mont Kilimandjaro' : 'Location: Mount Kilimanjaro'}</span>
                   </div>
                 </div>
               </div>
@@ -86,10 +88,12 @@ export default function MountainPageSection({ onOpenBooking }: MountainPageSecti
             {/* Overview */}
             <div className="space-y-2 mb-6">
               <span className="block text-stone-400 dark:text-stone-500 font-mono text-[10px] uppercase tracking-wider font-bold">
-                Overview
+                {language === 'fr' ? 'Aperçu' : 'Overview'}
               </span>
               <p className="text-[#2B2B2B]/95 dark:text-stone-300 text-base leading-relaxed">
-                Climb the highest mountain in Africa and experience one of the world’s most iconic adventures. Our professional team will guide you safely to the summit.
+                {language === 'fr'
+                  ? 'Grimpez sur le plus haut sommet d’Afrique et vivez l’une des aventures les plus emblématiques de la planète. Notre équipe professionnelle vous guidera en toute sécurité jusqu’au sommet.'
+                  : 'Climb the highest mountain in Africa and experience one of the world’s most iconic adventures. Our professional team will guide you safely to the summit.'}
               </p>
             </div>
 
@@ -97,31 +101,31 @@ export default function MountainPageSection({ onOpenBooking }: MountainPageSecti
               {/* Routes */}
               <div>
                 <span className="block text-stone-400 dark:text-stone-500 font-mono text-[10px] uppercase tracking-wider font-bold mb-3">
-                  Routes Available
+                  {language === 'fr' ? 'Voies Disponibles' : 'Routes Available'}
                 </span>
                 <ul className="space-y-3">
                   <li className="flex items-center justify-between p-3 rounded-lg bg-stone-50 dark:bg-white/5 border border-stone-100 dark:border-white/5 text-sm font-semibold text-[#0E251D] dark:text-stone-200">
                     <span className="flex items-center gap-2">
                       <ArrowRight className="w-4 h-4 text-[#9B6338]" />
-                      Machame Route (6–7 days)
+                      {language === 'fr' ? 'Voie Machame (6-7 jours)' : 'Machame Route (6–7 days)'}
                     </span>
                     <span className="text-[10px] bg-[#8D5A34]/20 text-[#0E251D] dark:text-[#8D5A34] rounded px-2 py-0.5 uppercase tracking-wider font-bold py-1 flex items-center gap-1 font-mono">
-                      ⭐ popular
+                      ⭐ {language === 'fr' ? 'populaire' : 'popular'}
                     </span>
                   </li>
                   <li className="flex items-center justify-between p-3 rounded-lg bg-stone-50 dark:bg-white/5 border border-stone-100 dark:border-white/5 text-sm font-semibold text-[#0E251D] dark:text-stone-200">
                     <span className="flex items-center gap-2">
                        <ArrowRight className="w-4 h-4 text-stone-400 dark:text-stone-500" />
-                      Marangu Route (5–6 days)
+                      {language === 'fr' ? 'Voie Marangu (5-6 jours)' : 'Marangu Route (5–6 days)'}
                     </span>
                   </li>
-                  <li className="flex items-center justify-between p-3 rounded-lg bg-stone-50 dark:bg-white/5 border border-stone-100 dark:border-white/5 text-sm font-semibold text-[#0E251D] dark:text-stone-200">
+                  <li className="flex items-center justify-between p-3 rounded-lg bg-stone-50 dark:bg-white/5 border border-stone-100 dark:border-white/5 text-sm font-semibold text-[#0E251D] dark:text-stone-100">
                     <span className="flex items-center gap-2">
                       <ArrowRight className="w-4 h-4 text-[#9B6338]" />
-                      Lemosho Route (7–8 days)
+                      {language === 'fr' ? 'Voie Lemosho (7-8 jours)' : 'Lemosho Route (7–8 days)'}
                     </span>
                     <span className="text-[10px] bg-teal-500/10 text-teal-800 dark:text-teal-400 rounded px-2 py-0.5 uppercase tracking-wider font-bold py-1 flex items-center gap-1 font-mono">
-                      ⭐ scenic
+                      ⭐ {language === 'fr' ? 'panoramique' : 'scenic'}
                     </span>
                   </li>
                 </ul>
@@ -130,16 +134,22 @@ export default function MountainPageSection({ onOpenBooking }: MountainPageSecti
               {/* Inclusions */}
               <div className="bg-[#0E251D]/5 dark:bg-white/5 border border-[#0E251D]/10 dark:border-white/10 rounded-xl p-5">
                 <span className="block text-stone-500 dark:text-stone-400 font-mono text-[10px] uppercase tracking-wider font-bold mb-3">
-                  What’s Included
+                  {language === 'fr' ? 'Ce qui est inclus' : 'What’s Included'}
                 </span>
                 <ul className="space-y-2">
-                  {[
+                  {(language === 'fr' ? [
+                    "Guides professionnels, porteurs et cuisinier",
+                    "Tous les frais de parc national",
+                    "Hébergement en tente de camping ou refuge",
+                    "Repas complets durant la marche",
+                    "Transferts depuis et vers l'hôtel"
+                  ] : [
                     "Professional guides, porters & cook",
                     "All park fees",
                     "Camping / hut accommodation",
                     "Meals during the trek",
                     "Transfers from/to hotel"
-                  ].map((inc, i) => (
+                  ]).map((inc, i) => (
                     <li key={i} className="flex items-start gap-2 text-xs sm:text-sm font-medium text-[#0E251D] dark:text-stone-200">
                       <span className="text-[#8D5A34] font-semibold text-sm select-none">✔</span>
                       <span>{inc}</span>
@@ -152,8 +162,10 @@ export default function MountainPageSection({ onOpenBooking }: MountainPageSecti
             {/* Inquire CTA row */}
             <div className="flex flex-col sm:flex-row items-center justify-between border-t border-stone-100 dark:border-white/10 pt-6 mt-8 gap-4">
               <div className="inline-flex items-center gap-1.5 text-xs text-stone-600 dark:text-stone-400 font-mono">
-                <span className="text-[#9B6338] font-semibold">👉 Best for:</span>
-                <span className="font-bold uppercase tracking-wider text-[#0E251D] dark:text-stone-300">Adventure seekers, serious hikers</span>
+                <span className="text-[#9B6338] font-semibold">👉 {language === 'fr' ? 'Recommandé pour :' : 'Best for:'}</span>
+                <span className="font-bold uppercase tracking-wider text-[#0E251D] dark:text-stone-300">
+                  {language === 'fr' ? 'Passionnés d’aventure, grands randonneurs' : 'Adventure seekers, serious hikers'}
+                </span>
               </div>
 
               <a
@@ -163,7 +175,7 @@ export default function MountainPageSection({ onOpenBooking }: MountainPageSecti
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20ba59] active:scale-95 text-white font-bold text-xs uppercase tracking-wider py-3 px-6 rounded-lg shadow-md transition-all duration-300"
               >
                 <WhatsAppIcon className="w-4 h-4 fill-white" />
-                <span>Inquire on WhatsApp</span>
+                <span>{language === 'fr' ? 'S’informer sur WhatsApp' : 'Inquire on WhatsApp'}</span>
               </a>
             </div>
           </motion.div>
@@ -181,18 +193,20 @@ export default function MountainPageSection({ onOpenBooking }: MountainPageSecti
                 <span className="text-3xl sm:text-4xl">🌋</span>
                 <div>
                   <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#0E251D] dark:text-[#F5F1E8]">
-                    Mount Meru Trek
+                    {language === 'fr' ? 'Trek du Mont Meru' : 'Mount Meru Trek'}
                   </h2>
                   <div className="flex items-center gap-1 text-xs text-stone-500 dark:text-stone-400 font-mono mt-0.5">
                     <MapPin className="w-3.5 h-3.5 text-[#9B6338]" />
-                    <span>Location: Mount Meru</span>
+                    <span>{language === 'fr' ? 'Lieu : Mont Meru' : 'Location: Mount Meru'}</span>
                   </div>
                 </div>
               </div>
               <div className="text-right">
-                <span className="block text-[10px] text-stone-400 dark:text-stone-500 font-mono uppercase tracking-wider font-bold">Duration</span>
+                <span className="block text-[10px] text-stone-400 dark:text-stone-500 font-mono uppercase tracking-wider font-bold">
+                  {language === 'fr' ? 'Durée' : 'Duration'}
+                </span>
                 <span className="text-[#0E251D] dark:text-[#8D5A34] font-bold text-sm bg-stone-100 dark:bg-white/5 border border-stone-200 dark:border-white/10 rounded px-2.5 py-1 inline-block font-mono">
-                  3–4 Days
+                  {language === 'fr' ? '3–4 Jours' : '3–4 Days'}
                 </span>
               </div>
             </div>
@@ -200,10 +214,12 @@ export default function MountainPageSection({ onOpenBooking }: MountainPageSecti
             {/* Overview */}
             <div className="space-y-2 mb-6">
               <span className="block text-stone-400 dark:text-stone-500 font-mono text-[10px] uppercase tracking-wider font-bold">
-                Overview
+                {language === 'fr' ? 'Aperçu' : 'Overview'}
               </span>
               <p className="text-[#2B2B2B]/95 dark:text-stone-300 text-base leading-relaxed">
-                A perfect alternative to Kilimanjaro with fewer crowds and amazing wildlife views inside Arusha National Park.
+                {language === 'fr'
+                  ? 'Une alternative parfaite au Kilimandjaro avec moins d’affluence et d’incroyables rencontres avec la faune sauvage au sein du parc national d’Arusha.'
+                  : 'A perfect alternative to Kilimanjaro with fewer crowds and amazing wildlife views inside Arusha National Park.'}
               </p>
             </div>
 
@@ -211,14 +227,18 @@ export default function MountainPageSection({ onOpenBooking }: MountainPageSecti
               {/* What to Expect */}
               <div>
                 <span className="block text-stone-400 dark:text-stone-500 font-mono text-[10px] uppercase tracking-wider font-bold mb-3">
-                  What to Expect
+                  {language === 'fr' ? 'À quoi s’attendre' : 'What to Expect'}
                 </span>
                 <ul className="space-y-2.5">
-                  {[
+                  {(language === 'fr' ? [
+                    "Trekking avec guide expérimenté",
+                    "Rencontres animalières sauvages (girafes, buffles)",
+                    "Points de vue splendides au lever du soleil"
+                  ] : [
                     "Guided trekking",
                     "Wildlife encounters (giraffes, buffaloes)",
                     "Stunning sunrise views"
-                  ].map((exp, i) => (
+                  ]).map((exp, i) => (
                     <li key={i} className="flex items-start gap-2.5 text-sm font-semibold text-[#0E251D] dark:text-stone-200">
                       <span className="text-[#8D5A34] mt-1 select-none">✦</span>
                       <span>{exp}</span>
@@ -230,15 +250,19 @@ export default function MountainPageSection({ onOpenBooking }: MountainPageSecti
               {/* Price Range */}
               <div className="bg-[#0E251D]/5 dark:bg-white/5 border border-[#0E251D]/10 dark:border-white/10 rounded-xl p-5">
                 <span className="block text-stone-500 dark:text-stone-400 font-mono text-[10px] uppercase tracking-wider font-bold mb-3">
-                  Price Range
+                  {language === 'fr' ? 'Gamme de Prix' : 'Price Range'}
                 </span>
                 <div className="space-y-2 font-mono">
                   <div className="flex justify-between border-b border-stone-200/55 dark:border-white/10 pb-2 text-sm text-stone-700 dark:text-stone-300">
-                    <span className="font-semibold text-[#0E251D] dark:text-[#F5F1E8]">Budget</span>
+                    <span className="font-semibold text-[#0E251D] dark:text-[#F5F1E8]">
+                      {language === 'fr' ? 'Économique' : 'Budget'}
+                    </span>
                     <span className="font-bold text-[#9B6338]">$600</span>
                   </div>
                   <div className="flex justify-between text-sm text-stone-700 dark:text-stone-300 pt-1">
-                    <span className="font-semibold text-[#0E251D] dark:text-[#F5F1E8]">Mid-range</span>
+                    <span className="font-semibold text-[#0E251D] dark:text-[#F5F1E8]">
+                      {language === 'fr' ? 'Moyen de gamme' : 'Mid-range'}
+                    </span>
                     <span className="font-bold text-[#0E251D] dark:text-[#8D5A34]">$800</span>
                   </div>
                 </div>
@@ -248,8 +272,10 @@ export default function MountainPageSection({ onOpenBooking }: MountainPageSecti
             {/* Inquire CTA row */}
             <div className="flex flex-col sm:flex-row items-center justify-between border-t border-stone-100 dark:border-white/10 pt-6 mt-8 gap-4">
               <div className="inline-flex items-center gap-1.5 text-xs text-stone-600 dark:text-stone-400 font-mono">
-                <span className="text-[#9B6338] font-semibold">👉 Best for:</span>
-                <span className="font-bold uppercase tracking-wider text-[#0E251D] dark:text-stone-300">Short adventure, acclimatization</span>
+                <span className="text-[#9B6338] font-semibold">👉 {language === 'fr' ? 'Idéal pour :' : 'Best for:'}</span>
+                <span className="font-bold uppercase tracking-wider text-[#0E251D] dark:text-stone-300">
+                  {language === 'fr' ? 'Aventure express, acclimatation' : 'Short adventure, acclimatization'}
+                </span>
               </div>
 
               <a
@@ -259,7 +285,7 @@ export default function MountainPageSection({ onOpenBooking }: MountainPageSecti
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20ba59] active:scale-95 text-white font-bold text-xs uppercase tracking-wider py-3 px-6 rounded-lg shadow-md transition-all duration-300"
               >
                 <WhatsAppIcon className="w-4 h-4 fill-white" />
-                <span>Inquire on WhatsApp</span>
+                <span>{language === 'fr' ? 'S’informer sur WhatsApp' : 'Inquire on WhatsApp'}</span>
               </a>
             </div>
           </motion.div>
@@ -276,19 +302,19 @@ export default function MountainPageSection({ onOpenBooking }: MountainPageSecti
               <span className="text-3xl sm:text-4xl">🥾</span>
               <div>
                 <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#0E251D] dark:text-[#F5F1E8]">
-                  Day Hikes (Short Mountains & Trails)
+                  {language === 'fr' ? 'Randonnées d’un Jour (Sommets Courts & Sentiers)' : 'Day Hikes (Short Mountains & Trails)'}
                 </h2>
                 <span className="text-xs text-stone-500 dark:text-stone-400 font-mono mt-0.5">
-                  Single-day exploratory excursions out of Arusha
+                  {language === 'fr' ? 'Excursions d’exploration d’une journée au départ d’Arusha' : 'Single-day exploratory excursions out of Arusha'}
                 </span>
               </div>
             </div>
 
             <div className="space-y-4">
               {[
-                { name: "Materuni Village Hike", icon: "🌿", location: "Materuni Waterfalls", price: "$120" },
-                { name: "Napuru Waterfalls Hike", icon: "🌄", location: "Napuru Waterfalls", price: "$100" },
-                { name: "Mount Meru Day Hike", icon: "🌳", location: "Mount Meru", price: "$150" }
+                { name: language === 'fr' ? "Randonnée au Village de Materuni" : "Materuni Village Hike", icon: "🌿", location: language === 'fr' ? "Chutes de Materuni" : "Materuni Waterfalls", price: "$120" },
+                { name: language === 'fr' ? "Randonnée aux Chutes de Napuru" : "Napuru Waterfalls Hike", icon: "🌄", location: language === 'fr' ? "Chutes de Napuru" : "Napuru Waterfalls", price: "$100" },
+                { name: language === 'fr' ? "Randonnée d'un Jour au Mont Meru" : "Mount Meru Day Hike", icon: "🌳", location: "Mount Meru", price: "$150" }
               ].map((hike, idx) => (
                 <div key={idx} className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 p-4 rounded-xl bg-stone-50 dark:bg-white/5 border border-stone-200/60 dark:border-white/10 hover:border-[#8D5A34]/40 dark:hover:border-[#8D5A34]/40 shadow-xs transition-colors">
                   <div className="flex items-center gap-3.5">
@@ -299,14 +325,16 @@ export default function MountainPageSection({ onOpenBooking }: MountainPageSecti
                       </h4>
                       <p className="text-xs text-stone-500 dark:text-stone-400 font-mono flex items-center gap-1 mt-0.5">
                         <MapPin className="w-3.5 h-3.5 text-[#9B6338]" />
-                        <span>Location: {hike.location}</span>
+                        <span>{language === 'fr' ? 'Lieu :' : 'Location:'} {hike.location}</span>
                       </p>
                     </div>
                   </div>
 
                   <div className="flex sm:flex-col items-center sm:items-end justify-between w-full sm:w-auto border-t sm:border-t-0 pt-3 sm:pt-0 border-stone-200/50 dark:border-white/10 mt-2 sm:mt-0 gap-3">
                     <div className="text-left sm:text-right">
-                      <span className="block text-[9px] text-[#9B6338] font-bold uppercase tracking-wider font-mono">Price</span>
+                      <span className="block text-[9px] text-[#9B6338] font-bold uppercase tracking-wider font-mono">
+                        {language === 'fr' ? 'Tarif' : 'Price'}
+                      </span>
                       <span className="text-lg font-bold text-[#0E251D] dark:text-[#8D5A34] font-mono">
                         {hike.price}
                       </span>
@@ -319,7 +347,7 @@ export default function MountainPageSection({ onOpenBooking }: MountainPageSecti
                       className="bg-[#25D366] hover:bg-[#20ba59] active:scale-95 text-white font-bold text-xs uppercase tracking-wider py-1.5 px-3.5 rounded-lg shadow-xs transition-all flex items-center justify-center gap-1.5 cursor-pointer"
                     >
                       <WhatsAppIcon className="w-3.5 h-3.5 fill-white" />
-                      <span>Inquire Hike</span>
+                      <span>{language === 'fr' ? 'S’informer' : 'Inquire Hike'}</span>
                     </a>
                   </div>
                 </div>
