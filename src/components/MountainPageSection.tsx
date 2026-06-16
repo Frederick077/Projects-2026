@@ -169,7 +169,7 @@ export default function MountainPageSection({ onOpenBooking }: MountainPageSecti
               </div>
 
               <a
-                href="https://wa.me/255714998804?text=Hi%2520Chaka%2520Safaris%2520and%2520Hiking!%2520I%252520am%252520interested%252520in%252520Mount%252520Kilimanjaro%252520Climbing%252520packages."
+                href="https://wa.me/255703432513?text=Hi%2520Chaka%2520Safaris%2520and%2520Hiking!%2520I%252520am%252520interested%252520in%252520Mount%252520Kilimanjaro%252520Climbing%252520packages."
                 target="_blank"
                 rel="noreferrer"
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20ba59] active:scale-95 text-white font-bold text-xs uppercase tracking-wider py-3 px-6 rounded-lg shadow-md transition-all duration-300"
@@ -279,7 +279,7 @@ export default function MountainPageSection({ onOpenBooking }: MountainPageSecti
               </div>
 
               <a
-                href="https://wa.me/255714998804?text=Hi%2520Chaka%2520Safaris%2520and%2520Hiking!%2520I%252520am%252520interested%252520in%252520Mount%252520Meru%252520Trek."
+                href="https://wa.me/255703432513?text=Hi%2520Chaka%2520Safaris%2520and%2520Hiking!%2520I%252520am%252520interested%252520in%252520Mount%252520Meru%252520Trek."
                 target="_blank"
                 rel="noreferrer"
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20ba59] active:scale-95 text-white font-bold text-xs uppercase tracking-wider py-3 px-6 rounded-lg shadow-md transition-all duration-300"
@@ -343,7 +343,7 @@ export default function MountainPageSection({ onOpenBooking }: MountainPageSecti
                     </div>
 
                     <a
-                      href={`https://wa.me/255714998804?text=Hi%2520Chaka%2520Safaris%2520and%2520Hiking!%2520I%252520am%252520interested%252520in%252520booking%252520the%252520${encodeURIComponent(hike.name)}.`}
+                      href={`https://wa.me/255703432513?text=Hi%2520Chaka%2520Safaris%2520and%2520Hiking!%2520I%252520am%252520interested%252520in%252520booking%252520the%252520${encodeURIComponent(hike.name)}.`}
                       target="_blank"
                       rel="noreferrer"
                       className="bg-[#25D366] hover:bg-[#20ba59] active:scale-95 text-white font-bold text-xs uppercase tracking-wider py-1.5 px-3.5 rounded-lg shadow-xs transition-all flex items-center justify-center gap-1.5 cursor-pointer"

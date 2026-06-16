@@ -51,14 +51,14 @@ export default function Footer({ onOpenBooking }: FooterProps) {
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="w-5 h-5 text-[#8D5A34] shrink-0" />
-                <a href="https://wa.me/255714998804" target="_blank" rel="noreferrer" className="hover:text-[#8D5A34] transition-colors font-semibold">
-                  {language === 'fr' ? 'Tél / WhatsApp : +255 714 998 804' : 'Phone / WhatsApp: +255 714 998 804'}
+                <a href="https://wa.me/255703432513" target="_blank" rel="noreferrer" className="hover:text-[#8D5A34] transition-colors font-semibold">
+                  {language === 'fr' ? 'Tél / WhatsApp : +255 703 432 513' : 'Phone / WhatsApp: +255 703 432 513'}
                 </a>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="w-5 h-5 text-[#8D5A34] shrink-0" />
-                <a href="mailto:info@chakasafaris.com" className="hover:text-[#8D5A34] transition-colors font-semibold">
-                  info@chakasafaris.com
+                <a href="mailto:safarischaka@gmail.com" className="hover:text-[#8D5A34] transition-colors font-semibold">
+                  safarischaka@gmail.com
                 </a>
               </li>
             </ul>
@@ -86,7 +86,7 @@ export default function Footer({ onOpenBooking }: FooterProps) {
 
             <div className="pt-4">
               <a
-                href="https://wa.me/255714998804?text=Hi%20Chaka%20Safaris%20and%20Hiking!%20I%20visited%20your%20website%20and%20want%20to%20plan%20a%20tour%20to%20Tanzania."
+                href="https://wa.me/255703432513?text=Hi%20Chaka%20Safaris%20and%20Hiking!%20I%20visited%20your%20website%20and%20want%20to%20plan%20a%20tour%20to%20Tanzania."
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex items-center gap-2 bg-[#8D5A34] hover:bg-[#724522] active:scale-95 text-white font-extrabold text-sm uppercase tracking-wider py-4 px-8 rounded-lg shadow-xl cursor-pointer transition-all duration-300"

@@ -303,7 +303,7 @@ export default function MountainSection({ onOpenBooking }: MountainSectionProps)
                           </span>
                           
                           <a
-                            href={`https://wa.me/255714998804?text=Hello%20Chaka%5FSafaris%5Fand%5FHiking!%20I%20visited%2520your%20website%20and%20want%2520to%20plan%20and%20inquire%20about%20climbing%20via%20the%20${encodeURIComponent(route.name)}.`}
+                            href={`https://wa.me/255703432513?text=Hello%20Chaka%5FSafaris%5Fand%5FHiking!%20I%20visited%2520your%20website%20and%20want%2520to%20plan%20and%20inquire%20about%20climbing%20via%20the%20${encodeURIComponent(route.name)}.`}
                             target="_blank"
                             rel="noreferrer"
                             className="bg-[#25D366] hover:bg-[#20ba59] active:scale-95 text-white font-bold text-xs uppercase tracking-wider py-1.5 px-3.5 rounded-lg shadow-sm transition-all flex items-center justify-center gap-1.5 cursor-pointer whitespace-nowrap"
@@ -348,62 +348,62 @@ export default function MountainSection({ onOpenBooking }: MountainSectionProps)
                       return badge;
                     };
 
-                    const translatedRouteDesc = (id: string, defDesc: string) => {
-                      if (language !== 'fr') return defDesc;
-                      if (id === "route-marangu") return "Sommets coniques. Dormez confortablement dans de chaleureux refuges de montagne en dur, à l’abri du vent.";
-                      if (id === "route-rongai") return "Approche par le versant nord sec près de la frontière kenyane, le choix de prédilection pour le camping sauvage.";
-                      if (id === "route-umbwe") return "Une approche raide, rapide et hautement physique pour les grimpeurs aguerris aimant les vrais défis.";
-                      return defDesc;
-                    };
-
-                    return (
-                      <motion.div
-                        key={route.id}
-                        initial={{ opacity: 0, x: -20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.4, delay: idx * 0.05 }}
-                        className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 p-5 rounded-2xl bg-[#F5F1E8]/45 border border-[#1F4D3A]/5 hover:border-[#C9A227]/40 shadow-sm transition-all"
-                      >
-                        <div className="flex items-start gap-4">
-                          <div className="w-14 h-14 rounded-xl bg-white flex items-center justify-center text-2xl shadow-sm border border-stone-200/80 select-none shrink-0">
-                            {route.emoji}
-                          </div>
-
-                          <div className="space-y-1">
-                            <div className="flex flex-wrap items-center gap-2">
-                              <h4 className="font-serif text-lg font-bold text-[#1F4D3A]">
-                                {translatedRouteName(route.id, route.name)} ({translatedRouteDuration(route.id, route.duration)})
-                              </h4>
-                              {route.badge && (
-                                <span className="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded bg-[#C96B2C]/10 text-[#C96B2C]">
-                                  {translatedRouteBadge(route.badge)}
-                                </span>
-                              )}
-                            </div>
-                            <p className="text-xs text-stone-500 leading-relaxed max-w-md">
-                              {translatedRouteDesc(route.id, route.description)}
-                            </p>
-                          </div>
-                        </div>
-
-                        <div className="sm:text-right w-full sm:w-auto flex sm:flex-col justify-between items-center sm:items-end border-t sm:border-t-0 pt-3 sm:pt-0 border-stone-200/60 mt-2 sm:mt-0 gap-3">
-                          <span className="text-[#0E251D] text-xs font-mono font-semibold border border-[#0E251D]/15 rounded-lg px-2.5 py-1.5 bg-[#0E251D]/5">
-                            {language === 'fr' ? '🏔️ Ascension Privée' : '🏔️ Private Tour'}
-                          </span>
-                          
-                          <a
-                            href={`https://wa.me/255714998804?text=Hello%20Chaka%5FSafaris%5Fand%5FHiking!%20I%20visited%2520your%20website%20and%20want%2520to%20plan%20and%20inquire%20about%20climbing%20via%20the%20${encodeURIComponent(route.name)}.`}
-                            target="_blank"
-                            rel="noreferrer"
-                            className="bg-[#25D366] hover:bg-[#20ba59] active:scale-95 text-white font-bold text-xs uppercase tracking-wider py-1.5 px-3.5 rounded-lg shadow-sm transition-all flex items-center justify-center gap-1.5 cursor-pointer whitespace-nowrap"
-                          >
-                            <WhatsAppIcon className="w-3.5 h-3.5 fill-white" />
-                            <span>{language === 'fr' ? 'S’informer' : 'Inquire'}</span>
-                          </a>
-                        </div>
-                      </motion.div>
-                    );
+                     const translatedRouteDesc = (id: string, defDesc: string) => {
+                       if (language !== 'fr') return defDesc;
+                       if (id === "route-marangu") return "Sommets coniques. Dormez confortablement dans de chaleureux refuges de montagne en dur, à l’abri du vent.";
+                       if (id === "route-rongai") return "Approche par le versant nord sec près de la frontière kenyane, le choix de prédilection pour le camping sauvage.";
+                       if (id === "route-umbwe") return "Une approche raide, rapide et hautement physique pour les grimpeurs aguerris aimant les vrais défis.";
+                       return defDesc;
+                     };
+ 
+                     return (
+                       <motion.div
+                         key={route.id}
+                         initial={{ opacity: 0, x: -20 }}
+                         whileInView={{ opacity: 1, x: 0 }}
+                         viewport={{ once: true }}
+                         transition={{ duration: 0.4, delay: idx * 0.05 }}
+                         className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 p-5 rounded-2xl bg-[#F5F1E8]/45 border border-[#1F4D3A]/5 hover:border-[#C9A227]/40 shadow-sm transition-all"
+                       >
+                         <div className="flex items-start gap-4">
+                           <div className="w-14 h-14 rounded-xl bg-white flex items-center justify-center text-2xl shadow-sm border border-stone-200/80 select-none shrink-0">
+                             {route.emoji}
+                           </div>
+ 
+                           <div className="space-y-1">
+                             <div className="flex flex-wrap items-center gap-2">
+                               <h4 className="font-serif text-lg font-bold text-[#1F4D3A]">
+                                 {translatedRouteName(route.id, route.name)} ({translatedRouteDuration(route.id, route.duration)})
+                               </h4>
+                               {route.badge && (
+                                 <span className="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded bg-[#C96B2C]/10 text-[#C96B2C]">
+                                   {translatedRouteBadge(route.badge)}
+                                 </span>
+                               )}
+                             </div>
+                             <p className="text-xs text-stone-500 leading-relaxed max-w-md">
+                               {translatedRouteDesc(route.id, route.description)}
+                             </p>
+                           </div>
+                         </div>
+ 
+                         <div className="sm:text-right w-full sm:w-auto flex sm:flex-col justify-between items-center sm:items-end border-t sm:border-t-0 pt-3 sm:pt-0 border-stone-200/60 mt-2 sm:mt-0 gap-3">
+                           <span className="text-[#0E251D] text-xs font-mono font-semibold border border-[#0E251D]/15 rounded-lg px-2.5 py-1.5 bg-[#0E251D]/5">
+                             {language === 'fr' ? '🏔️ Ascension Privée' : '🏔️ Private Tour'}
+                           </span>
+                           
+                           <a
+                             href={`https://wa.me/255703432513?text=Hello%20Chaka%5FSafaris%5Fand%5FHiking!%20I%20visited%2520your%20website%20and%20want%2520to%20plan%20and%20inquire%20about%20climbing%20via%20the%20${encodeURIComponent(route.name)}.`}
+                             target="_blank"
+                             rel="noreferrer"
+                             className="bg-[#25D366] hover:bg-[#20ba59] active:scale-95 text-white font-bold text-xs uppercase tracking-wider py-1.5 px-3.5 rounded-lg shadow-sm transition-all flex items-center justify-center gap-1.5 cursor-pointer whitespace-nowrap"
+                           >
+                             <WhatsAppIcon className="w-3.5 h-3.5 fill-white" />
+                             <span>{language === 'fr' ? 'S’informer' : 'Inquire'}</span>
+                           </a>
+                         </div>
+                       </motion.div>
+                     );
                   })}
                 </div>
               </div>
@@ -444,7 +444,7 @@ export default function MountainSection({ onOpenBooking }: MountainSectionProps)
                     : 'Expert assistance with planning. Chat directly with us!'}
                 </p>
                 <a
-                  href="https://wa.me/255714998804?text=Hi%2520Chaka%2520Safaris%2520and%2520Hiking!%2520I%2520am%2520planning%2520to%2520climb%2520Mount%2520Kilimanjaro.%2520Please%2520send%2520me%2520custom%2520route%2520itineraries."
+                  href="https://wa.me/255703432513?text=Hi%2520Chaka%2520Safaris%2520and%2520Hiking!%2520I%2520am%2520planning%2520to%2520climb%2520Mount%2520Kilimanjaro.%2520Please%2520send%2520me%2520custom%2520route%2520itineraries."
                   target="_blank"
                   rel="noreferrer"
                   className="w-full bg-[#C9A227] hover:bg-[#b08b1f] text-[#1F4D3A] font-bold text-[11px] uppercase tracking-wider py-2 px-3 rounded-lg shadow-md transition-all duration-300 flex items-center justify-center gap-1.5 cursor-pointer"
@@ -528,7 +528,7 @@ export default function MountainSection({ onOpenBooking }: MountainSectionProps)
                     </div>
 
                     <a
-                      href="https://wa.me/255714998804?text=Hi%20Chaka%20Safaris%20and%20Hiking!%20I%20am%20interested%20in%20the%202%20Days%20Safari%20(Tarangire%20%26%20Ngorongoro)."
+                      href="https://wa.me/255703432513?text=Hi%20Chaka%20Safaris%20and%20Hiking!%20I%20am%20interested%20in%20the%202%20Days%20Safari%20(Tarangire%20%26%20Ngorongoro)."
                       target="_blank"
                       rel="noreferrer"
                       className="bg-[#25D366] hover:bg-[#20ba59] active:scale-95 text-white font-bold text-xs uppercase tracking-wider py-2 px-4 rounded-lg shadow-sm transition-all flex items-center gap-1.5 cursor-pointer"
@@ -578,7 +578,7 @@ export default function MountainSection({ onOpenBooking }: MountainSectionProps)
                     </div>
 
                     <a
-                      href="https://wa.me/255714998804?text=Hi%20Chaka%20Safaris%20and%20Hiking!%20I%20am%20interested%20in%20the%203%20Days%20Safari%20(Serengeti%20%26%20Ngorongoro)."
+                      href="https://wa.me/255703432513?text=Hi%20Chaka%20Safaris%20and%20Hiking!%20I%20am%20interested%20in%20the%203%20Days%20Safari%20(Serengeti%20%26%20Ngorongoro)."
                       target="_blank"
                       rel="noreferrer"
                       className="bg-[#25D366] hover:bg-[#20ba59] active:scale-95 text-white font-bold text-xs uppercase tracking-wider py-2 px-4 rounded-lg shadow-sm transition-all flex items-center gap-1.5 cursor-pointer"
@@ -623,7 +623,7 @@ export default function MountainSection({ onOpenBooking }: MountainSectionProps)
                         : 'Our most comprehensive immersive tour covering epic game drives in Tarangire, Lake Manyara, Serengeti plains, and the legendary Ngorongoro crater floor.'}
                     </p>
                     <a
-                      href="https://wa.me/255714998804?text=Hi%2520Chaka%2520Safaris%2520and%2520Hiking!%2520I%2520am%2520interested%252520in%252520the%2525205%252520Days%252520Safari%252520Experience."
+                      href="https://wa.me/255703432513?text=Hi%2520Chaka%2520Safaris%2520and%2520Hiking!%2520I%2520am%2520interested%252520in%252520the%2525205%252520Days%252520Safari%252520Experience."
                       target="_blank"
                       rel="noreferrer"
                       className="bg-[#25D366] hover:bg-[#20ba59] active:scale-95 text-white font-bold text-xs uppercase tracking-wider py-2.5 px-5 rounded-lg shadow-sm transition-all flex items-center justify-center gap-1.5 cursor-pointer whitespace-nowrap"
@@ -670,7 +670,7 @@ export default function MountainSection({ onOpenBooking }: MountainSectionProps)
                     : 'Impeccable local transport. Direct updates on WhatsApp!'}
                 </p>
                 <a
-                  href="https://wa.me/255714998804?text=Hi%2520Chaka%2520Safaris%2520and%2520Hiking!%2520I%2520want%2520to%252520plan%2520a%252520custom%252520wildlife%252520safari%252520trip%252520to%252520Tanzania."
+                  href="https://wa.me/255703432513?text=Hi%2520Chaka%2520Safaris%2520and%2520Hiking!%2520I%2520want%2520to%252520plan%2520a%252520custom%252520wildlife%252520safari%252520trip%252520to%252520Tanzania."
                   target="_blank"
                   rel="noreferrer"
                   className="w-full bg-[#C9A227] hover:bg-[#b08b1f] text-[#1F4D3A] font-bold text-[11px] uppercase tracking-wider py-2 px-3 rounded-lg shadow-md transition-all duration-300 flex items-center justify-center gap-1.5 cursor-pointer"
@@ -770,7 +770,7 @@ export default function MountainSection({ onOpenBooking }: MountainSectionProps)
                       </div>
 
                       <a
-                        href={`https://wa.me/255714998804?text=Hi%2520Chaka%2520Safaris%2520and%2520Hiking!%2520I%2520am%2520interested%2520in%2520the%2520${encodeURIComponent(trip.name)}%2520Day%2520Trip.`}
+                        href={`https://wa.me/255703432513?text=Hi%2520Chaka%2520Safaris%2520and%2520Hiking!%2520I%2520am%2520interested%2520in%2520the%2520${encodeURIComponent(trip.name)}%2520Day%2520Trip.`}
                         target="_blank"
                         rel="noreferrer"
                         className="bg-[#25D366] hover:bg-[#20ba59] active:scale-95 text-white font-bold text-xs uppercase tracking-wider py-1.5 px-3.5 rounded-lg shadow-sm transition-all flex items-center justify-center gap-1.5 cursor-pointer"
@@ -818,7 +818,7 @@ export default function MountainSection({ onOpenBooking }: MountainSectionProps)
                     : 'Hassle-free day trip bookings. Direct updates on WhatsApp!'}
                 </p>
                 <a
-                  href="https://wa.me/255714998804?text=Hi%2520Chaka%2520Safaris%2520and%2520Hiking!%2520I%2520want%2520to%252520book%2520a%2520Day%2520Trip%2520for%2520my%252520group."
+                  href="https://wa.me/255703432513?text=Hi%2520Chaka%2520Safaris%2520and%2520Hiking!%2520I%2520want%2520to%252520book%2520a%2520Day%2520Trip%2520for%2520my%252520group."
                   target="_blank"
                   rel="noreferrer"
                   className="w-full bg-[#C9A227] hover:bg-[#b08b1f] text-[#1F4D3A] font-bold text-[11px] uppercase tracking-wider py-2 px-3 rounded-lg shadow-md transition-all duration-300 flex items-center justify-center gap-1.5 cursor-pointer"
@@ -898,7 +898,7 @@ export default function MountainSection({ onOpenBooking }: MountainSectionProps)
 
               <div className="mt-8 border-t border-stone-100 pt-4 flex items-center justify-between">
                 <a
-                  href="https://wa.me/255714998804?text=Hi%2520Chaka%2520Safaris%2520and%2520Hiking!%2520I%2520am%2520interested%2520in%2520the%2520Kilimanjaro%2520%2B%2520Safari%2520(Best%2520Seller)%2520combined%2520package."
+                  href="https://wa.me/255703432513?text=Hi%2520Chaka%2520Safaris%2520and%2520Hiking!%2520I%2520am%2520interested%2520in%2520the%2520Kilimanjaro%2520%2B%2520Safari%2520(Best%2520Seller)%2520combined%2520package."
                   target="_blank"
                   rel="noreferrer"
                   className="w-full bg-[#25D366] hover:bg-[#20ba59] active:scale-95 text-white font-bold text-xs uppercase tracking-wider py-2.5 px-4 rounded-lg shadow-sm transition-all flex items-center justify-center gap-2 cursor-pointer"
@@ -941,7 +941,7 @@ export default function MountainSection({ onOpenBooking }: MountainSectionProps)
 
               <div className="mt-8 border-t border-stone-100 pt-4">
                 <a
-                  href="https://wa.me/255714998804?text=Hi%2520Chaka%2520Safaris%2520and%2520Hiking!%2520I%2520am%2520interested%2520in%2520the%2520Safari%2520%2B%2520Chemka%2520Hot%2520Springs%2520combined%2520package."
+                  href="https://wa.me/255703432513?text=Hi%2520Chaka%2520Safaris%2520and%2520Hiking!%2520I%2520am%2520interested%2520in%2520the%2520Safari%2520%2B%2520Chemka%2520Hot%2520Springs%2520combined%2520package."
                   target="_blank"
                   rel="noreferrer"
                   className="w-full bg-[#25D366] hover:bg-[#20ba59] active:scale-95 text-white font-bold text-xs uppercase tracking-wider py-2.5 px-4 rounded-lg shadow-sm transition-all flex items-center justify-center gap-2 cursor-pointer"
@@ -984,7 +984,7 @@ export default function MountainSection({ onOpenBooking }: MountainSectionProps)
 
               <div className="mt-8 border-t border-stone-100 pt-4">
                 <a
-                  href="https://wa.me/255714998804?text=Hi%2520Chaka%2520Safaris%2520and%2520Hiking!%2520I%2520am%2520interested%2520in%2520the%2520Kilimanjaro%2520%2B%2520Materuni%2520combined%2520package."
+                  href="https://wa.me/255703432513?text=Hi%2520Chaka%2520Safaris%2520and%2520Hiking!%2520I%2520am%2520interested%2520in%2520the%2520Kilimanjaro%2520%2B%2520Materuni%2520combined%2520package."
                   target="_blank"
                   rel="noreferrer"
                   className="w-full bg-[#25D366] hover:bg-[#20ba59] active:scale-95 text-white font-bold text-xs uppercase tracking-wider py-2.5 px-4 rounded-lg shadow-sm transition-all flex items-center justify-center gap-2 cursor-pointer"
@@ -1027,7 +1027,7 @@ export default function MountainSection({ onOpenBooking }: MountainSectionProps)
 
               <div className="mt-8 border-t border-stone-100 pt-4">
                 <a
-                  href="https://wa.me/255714998804?text=Hi%2520Chaka%2520Safaris%2520and%2520Hiking!%2520I%2520am%2520interested%2520in%2520the%2520Safari%2520%2B%2520Materuni%2520combined%2520package."
+                  href="https://wa.me/255703432513?text=Hi%2520Chaka%2520Safaris%2520and%2520Hiking!%2520I%2520am%2520interested%2520in%2520the%2520Safari%2520%2B%2520Materuni%2520combined%2520package."
                   target="_blank"
                   rel="noreferrer"
                   className="w-full bg-[#25D366] hover:bg-[#20ba59] active:scale-95 text-white font-bold text-xs uppercase tracking-wider py-2.5 px-4 rounded-lg shadow-sm transition-all flex items-center justify-center gap-2 cursor-pointer"
@@ -1070,7 +1070,7 @@ export default function MountainSection({ onOpenBooking }: MountainSectionProps)
 
               <div className="mt-8 border-t border-[#F5F1E8] pt-4">
                 <a
-                  href="https://wa.me/255714998804?text=Hi%2520Chaka%2520Safaris%2520and%2520Hiking!%2520I%2520am%2520interested%2520in%2520the%2520Safari%2520%2B%2520Napuru%2520combined%2520package."
+                  href="https://wa.me/255703432513?text=Hi%2520Chaka%2520Safaris%2520and%2520Hiking!%2520I%2520am%2520interested%2520in%2520the%2520Safari%2520%2B%2520Napuru%2520combined%2520package."
                   target="_blank"
                   rel="noreferrer"
                   className="w-full bg-[#25D366] hover:bg-[#20ba59] active:scale-95 text-white font-bold text-xs uppercase tracking-wider py-2.5 px-4 rounded-lg shadow-sm transition-all flex items-center justify-center gap-2 cursor-pointer"
@@ -1102,7 +1102,7 @@ export default function MountainSection({ onOpenBooking }: MountainSectionProps)
             </p>
             <div className="mt-6">
               <a
-                href="https://wa.me/255714998804?text=Hi%2520Chaka%2520Safaris%2520and%2520Hiking!%2520Yes%2520I%2520would%2520love%2520the%2520Kilimanjaro%2520%2B%2520Safari%2520package%2520and%2520to%2520capture%2520our%2520best%2520moments."
+                href="https://wa.me/255703432513?text=Hi%2520Chaka%2520Safaris%2520and%2520Hiking!%2520Yes%2520I%2520would%2520love%2520the%2520Kilimanjaro%2520%2B%2520Safari%2520package%2520and%2520to%2520capture%2520our%2520best%2520moments."
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#20ba59] active:scale-95 text-white font-extrabold text-xs uppercase tracking-wider py-3.5 px-6 rounded-lg shadow-md hover:shadow-[#25D366]/20 transition-all duration-300 cursor-pointer"

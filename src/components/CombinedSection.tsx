@@ -93,7 +93,7 @@ export default function CombinedSection({ onOpenBooking }: CombinedSectionProps)
                   </span>
 
                   <a
-                    href={`https://wa.me/255714998804?text=Hello%20Chaka%20Safaris%20and%20Hiking!%20I%20am%20interested%20in%20the%20${encodeURIComponent(pkg.name)}%20combined%20adventure.`}
+                    href={`https://wa.me/255703432513?text=Hello%20Chaka%20Safaris%20and%20Hiking!%20I%20am%20interested%20in%20the%20${encodeURIComponent(pkg.name)}%20combined%20adventure.`}
                     target="_blank"
                     rel="noreferrer"
                     className="bg-[#25D366] hover:bg-[#20ba59] active:scale-95 text-white font-bold text-xs uppercase tracking-wider py-1.5 px-3.5 rounded-lg shadow-sm transition-all flex items-center justify-center gap-1.5 cursor-pointer whitespace-nowrap"

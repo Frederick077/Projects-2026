@@ -142,7 +142,7 @@ export default function App() {
 
                   {/* WhatsApp Callout Action */}
                   <a
-                    href="https://wa.me/255714998804?text=Hi%20Chaka%20Safaris%20and%20Hiking!%20I%20visited%2520your%20website%20and%20want%20to%20plan%20a%20tour%20to%20Tanzania."
+                    href="https://wa.me/255703432513?text=Hi%20Chaka%20Safaris%20and%20Hiking!%20I%20visited%20your%20website%20and%20want%20to%20plan%20a%20tour%20to%20Tanzania."
                     target="_blank"
                     rel="noreferrer"
                     className="w-full sm:w-auto bg-transparent hover:bg-white/10 active:scale-95 text-white font-bold text-sm uppercase tracking-wider py-4 px-8 rounded-lg border-2 border-white/40 hover:border-white transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer"
@@ -261,7 +261,7 @@ export default function App() {
                   {/* Direct Action */}
                   <div className="mt-12 text-center">
                     <a
-                      href="https://wa.me/255714998804?text=Hi%20Chaka%20Safaris%20and%20Hiking!%20I%20want%20to%20book%20a%20tour%20with%20you."
+                      href="https://wa.me/255703432513?text=Hi%20Chaka%20Safaris%20and%20Hiking!%20I%20want%20to%20book%20a%20tour%20with%20you."
                       target="_blank"
                       rel="noreferrer"
                       className="inline-flex items-center gap-3 bg-[#25D366] hover:bg-[#20ba59] active:scale-95 text-white font-bold text-sm uppercase tracking-wider py-4 px-8 rounded-lg shadow-xl hover:shadow-[#25D366]/20 transition-all duration-300"
@@ -361,7 +361,7 @@ export default function App() {
       {/* PERSISTENT FLOATING WHATSAPP BUTTON (Lower Right corner) */}
       <div className="fixed bottom-6 right-6 z-40">
         <a
-          href="https://wa.me/255714998804?text=Hello%20Chaka%20Safaris%20and%20Hiking!%20I%20would%20like%20to%20receive%20brochures%2520on%20safaris%20and%20hiking%20in%20Tanzania."
+          href="https://wa.me/255703432513?text=Hello%20Chaka%20Safaris%20and%20Hiking!%20I%20would%20like%20to%20receive%20brochures%2520on%20safaris%20and%20hiking%20in%20Tanzania."
           target="_blank"
           rel="noreferrer"
           className="bg-[#25D366] hover:bg-[#20ba59] text-white p-4 rounded-full shadow-2xl relative flex items-center justify-center group transform hover:scale-110 active:scale-95 transition-all duration-300"

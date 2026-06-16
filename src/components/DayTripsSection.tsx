@@ -137,7 +137,7 @@ export default function DayTripsSection({ onOpenBooking }: DayTripsSectionProps)
                   </span>
 
                   <a
-                    href={`https://wa.me/255714998804?text=Hello%20Chaka%20Safaris%20and%20Hiking!%20I%20visited%2520your%20website%20and%20want%2520to%20plan%20and%20inquire%20about%20the%20${encodeURIComponent(trip.name)}.`}
+                    href={`https://wa.me/255703432513?text=Hello%20Chaka%20Safaris%20and%20Hiking!%20I%20visited%2520your%20website%20and%20want%2520to%20plan%20and%20inquire%20about%20the%20${encodeURIComponent(trip.name)}.`}
                     target="_blank"
                     rel="noreferrer"
                     className="bg-[#25D366] hover:bg-[#20ba59] active:scale-95 text-white font-bold text-xs uppercase tracking-wider py-2.5 px-4.5 rounded-lg shadow-sm hover:shadow-[#25D366]/20 transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer border border-[#25D366]/10 shrink-0"
