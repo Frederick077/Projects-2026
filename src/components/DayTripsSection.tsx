@@ -130,17 +130,11 @@ export default function DayTripsSection({ onOpenBooking }: DayTripsSectionProps)
 
                 <div className="h-[1px] bg-stone-100 w-full my-4 mt-auto" />
 
-                {/* Bottom Row - Price & direct WhatsApp Inquire */}
-                <div className="flex items-center justify-between gap-4">
-                  <div>
-                    <span className="block font-sans text-[10px] text-stone-400 font-semibold uppercase tracking-wider">{language === 'fr' ? 'Tout Inclus' : 'All-Inclusive'}</span>
-                    <div className="flex items-baseline">
-                      <span className="font-serif text-2xl font-bold text-[#0E251D]">
-                        ${trip.price}
-                      </span>
-                      <span className="text-[10px] text-stone-500 font-mono ml-1 font-semibold">USD</span>
-                    </div>
-                  </div>
+                {/* Bottom Row - direct WhatsApp Inquire */}
+                <div className="flex items-center justify-between gap-4 mt-auto">
+                  <span className="text-[#0E251D] text-xs font-mono font-semibold border border-[#0E251D]/15 rounded-lg px-2.5 py-1.5 bg-[#0E251D]/5">
+                    {language === 'fr' ? '👥 Service Privé' : '👥 Private Tour'}
+                  </span>
 
                   <a
                     href={`https://wa.me/255714998804?text=Hello%20Chaka%20Safaris%20and%20Hiking!%20I%20visited%2520your%20website%20and%20want%2520to%20plan%20and%20inquire%20about%20the%20${encodeURIComponent(trip.name)}.`}

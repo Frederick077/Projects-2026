@@ -24,8 +24,8 @@ const dictionary: Record<Language, Record<string, string>> = {
     // Navbar
     'nav.home': 'Home',
     'nav.about': 'About',
-    'nav.kilimanjaro': 'Mountain Climbing',
-    'nav.safaris': 'Wildlife Safaris',
+    'nav.kilimanjaro': 'Chaka Safaris & Hiking',
+    'nav.safaris': 'Mountain Experiences',
     'nav.contact': 'Contact',
     'nav.dayTrips': 'Day Trips',
     'nav.combined': 'Combined Packages',
@@ -162,8 +162,8 @@ const dictionary: Record<Language, Record<string, string>> = {
     // Navbar
     'nav.home': 'Accueil',
     'nav.about': 'À Propos',
-    'nav.kilimanjaro': 'Ascension Montagne',
-    'nav.safaris': 'Safaris Sauvegardes',
+    'nav.kilimanjaro': 'Chaka Safaris & Randonnée',
+    'nav.safaris': 'Expériences de Montagne',
     'nav.contact': 'Contact',
     'nav.dayTrips': 'Excursions d\'une journée',
     'nav.combined': 'Forfaits Combinés',

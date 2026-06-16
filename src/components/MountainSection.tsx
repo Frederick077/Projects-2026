@@ -24,7 +24,7 @@ const WhatsAppIcon = ({ className = "w-4 h-4" }: { className?: string }) => (
   </svg>
 );
 
-const routesData = [
+const popularRoutesData = [
   {
     id: "route-machame",
     name: "Machame Route",
@@ -44,7 +44,10 @@ const routesData = [
     price: 2300,
     image: "https://images.unsplash.com/photo-1609137144813-7d84803af977?w=800&auto=format&fit=crop&q=80",
     description: "Undeniably gorgeous with low crowds and optimized high-altitude acclimatization profile."
-  },
+  }
+];
+
+const otherRoutesData = [
   {
     id: "route-marangu",
     name: "Marangu Route",
@@ -224,107 +227,185 @@ export default function MountainSection({ onOpenBooking }: MountainSectionProps)
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             
-            {/* Left Column: Popular Routes & Prices Cards (8 cols) */}
-            <div className="lg:col-span-8 space-y-6">
-              <div className="flex items-center gap-2 mb-6 border-b border-stone-200 pb-3">
-                <Sparkles className="w-5 h-5 text-[#C9A227]" />
-                <h3 className="font-serif text-xl sm:text-2xl font-bold text-[#1F4D3A]">
-                  {language === 'fr' ? 'Itinéraires Populaires & Tarifs' : 'Popular Routes & Prices'}
-                </h3>
+            {/* Left Column: Routes (8 cols) */}
+            <div className="lg:col-span-8 space-y-8">
+              {/* Popular Routes Section */}
+              <div>
+                <div className="flex items-center gap-2 mb-6 border-b border-stone-200 pb-3">
+                  <Sparkles className="w-5 h-5 text-[#C9A227]" />
+                  <h3 className="font-serif text-xl sm:text-2xl font-bold text-[#1F4D3A]">
+                    {language === 'fr' ? 'Itinéraires Populaires' : 'Popular Routes'}
+                  </h3>
+                </div>
+
+                <div className="space-y-4">
+                  {popularRoutesData.map((route, idx) => {
+                    const translatedRouteName = (id: string, defName: string) => {
+                      if (language !== 'fr') return defName;
+                      if (id === "route-machame") return "Voie Machame";
+                      if (id === "route-lemosho") return "Voie Lemosho";
+                      return defName;
+                    };
+
+                    const translatedRouteDuration = (id: string, defDuration: string) => {
+                      if (language !== 'fr') return defDuration;
+                      return defDuration.replace("Days", "Jours").replace("Day", "Jour");
+                    };
+
+                    const translatedRouteBadge = (badge: string | null) => {
+                      if (!badge || language !== 'fr') return badge;
+                      if (badge.includes("Best Seller")) return "⭐ Meilleure Vente";
+                      if (badge.includes("Premium")) return "🔝 Supérieur";
+                      return badge;
+                    };
+
+                    const translatedRouteDesc = (id: string, defDesc: string) => {
+                      if (language !== 'fr') return defDesc;
+                      if (id === "route-machame") return "L’itinéraire le plus populaire et pittoresque vers le sommet, célèbre pour ses superbes crêtes, le plateau de Shira et le mur de Barranco.";
+                      if (id === "route-lemosho") return "Incontestablement somptueuse, offrant moins d'affluence et un excellent profil d'acclimatation en haute altitude.";
+                      return defDesc;
+                    };
+
+                    return (
+                      <motion.div
+                        key={route.id}
+                        initial={{ opacity: 0, x: -20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.4, delay: idx * 0.05 }}
+                        className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 p-5 rounded-2xl bg-[#F5F1E8]/45 border border-[#1F4D3A]/5 hover:border-[#C9A227]/40 shadow-sm transition-all"
+                      >
+                        <div className="flex items-start gap-4">
+                          <div className="w-14 h-14 rounded-xl bg-white flex items-center justify-center text-2xl shadow-sm border border-stone-200/80 select-none shrink-0">
+                            {route.emoji}
+                          </div>
+
+                          <div className="space-y-1">
+                            <div className="flex flex-wrap items-center gap-2">
+                              <h4 className="font-serif text-lg font-bold text-[#1F4D3A]">
+                                {translatedRouteName(route.id, route.name)} ({translatedRouteDuration(route.id, route.duration)})
+                              </h4>
+                              {route.badge && (
+                                <span className="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded bg-[#C96B2C]/10 text-[#C96B2C]">
+                                  {translatedRouteBadge(route.badge)}
+                                </span>
+                              )}
+                            </div>
+                            <p className="text-xs text-stone-500 leading-relaxed max-w-md">
+                              {translatedRouteDesc(route.id, route.description)}
+                            </p>
+                          </div>
+                        </div>
+
+                        <div className="sm:text-right w-full sm:w-auto flex sm:flex-col justify-between items-center sm:items-end border-t sm:border-t-0 pt-3 sm:pt-0 border-stone-200/60 mt-2 sm:mt-0 gap-3">
+                          <span className="text-[#0E251D] text-xs font-mono font-semibold border border-[#0E251D]/15 rounded-lg px-2.5 py-1.5 bg-[#0E251D]/5">
+                            {language === 'fr' ? '🏔️ Ascension Privée' : '🏔️ Private Tour'}
+                          </span>
+                          
+                          <a
+                            href={`https://wa.me/255714998804?text=Hello%20Chaka%5FSafaris%5Fand%5FHiking!%20I%20visited%2520your%20website%20and%20want%2520to%20plan%20and%20inquire%20about%20climbing%20via%20the%20${encodeURIComponent(route.name)}.`}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="bg-[#25D366] hover:bg-[#20ba59] active:scale-95 text-white font-bold text-xs uppercase tracking-wider py-1.5 px-3.5 rounded-lg shadow-sm transition-all flex items-center justify-center gap-1.5 cursor-pointer whitespace-nowrap"
+                          >
+                            <WhatsAppIcon className="w-3.5 h-3.5 fill-white" />
+                            <span>{language === 'fr' ? 'S’informer' : 'Inquire'}</span>
+                          </a>
+                        </div>
+                      </motion.div>
+                    );
+                  })}
+                </div>
               </div>
 
-              <div className="space-y-4">
-                {routesData.map((route, idx) => {
-                  const translatedRouteName = (id: string, defName: string) => {
-                    if (language !== 'fr') return defName;
-                    if (id === "route-machame") return "Voie Machame";
-                    if (id === "route-lemosho") return "Voie Lemosho";
-                    if (id === "route-marangu") return "Voie Marangu";
-                    if (id === "route-rongai") return "Voie Rongai";
-                    if (id === "route-umbwe") return "Voie Umbwe";
-                    return defName;
-                  };
+              {/* Other Routes Section */}
+              <div>
+                <div className="flex items-center gap-2 mb-6 border-b border-stone-200 pb-3">
+                  <Sparkles className="w-5 h-5 text-[#C9A227] opacity-60" />
+                  <h3 className="font-serif text-xl sm:text-2xl font-bold text-[#1F4D3A]">
+                    {language === 'fr' ? 'Autres Itinéraires' : 'Other Routes'}
+                  </h3>
+                </div>
 
-                  const translatedRouteDuration = (id: string, defDuration: string) => {
-                    if (language !== 'fr') return defDuration;
-                    return defDuration.replace("Days", "Jours").replace("Day", "Jour");
-                  };
+                <div className="space-y-4">
+                  {otherRoutesData.map((route, idx) => {
+                    const translatedRouteName = (id: string, defName: string) => {
+                      if (language !== 'fr') return defName;
+                      if (id === "route-marangu") return "Voie Marangu";
+                      if (id === "route-rongai") return "Voie Rongai";
+                      if (id === "route-umbwe") return "Voie Umbwe";
+                      return defName;
+                    };
 
-                  const translatedRouteBadge = (badge: string | null) => {
-                    if (!badge || language !== 'fr') return badge;
-                    if (badge.includes("Best Seller")) return "⭐ Meilleure Vente";
-                    if (badge.includes("Premium")) return "🔝 Supérieur";
-                    if (badge.includes("Challenge")) return "💪 Défi";
-                    return badge;
-                  };
+                    const translatedRouteDuration = (id: string, defDuration: string) => {
+                      if (language !== 'fr') return defDuration;
+                      return defDuration.replace("Days", "Jours").replace("Day", "Jour");
+                    };
 
-                  const translatedRouteDesc = (id: string, defDesc: string) => {
-                    if (language !== 'fr') return defDesc;
-                    if (id === "route-machame") return "L’itinéraire le plus populaire et pittoresque vers le sommet, célèbre pour ses superbes crêtes, le plateau de Shira et le mur de Barranco.";
-                    if (id === "route-lemosho") return "Incontestablement somptueuse, offrant moins d'affluence et un excellent profil d'acclimatation en haute altitude.";
-                    if (id === "route-marangu") return "Sommets coniques. Dormez confortablement dans de chaleureux refuges de montagne en dur, à l’abri du vent.";
-                    if (id === "route-rongai") return "Approche par le versant nord sec près de la frontière kenyane, le choix de prédilection pour le camping sauvage.";
-                    if (id === "route-umbwe") return "Une approche raide, rapide et hautement physique pour les grimpeurs aguerris aimant les vrais défis.";
-                    return defDesc;
-                  };
+                    const translatedRouteBadge = (badge: string | null) => {
+                      if (!badge || language !== 'fr') return badge;
+                      if (badge.includes("Challenge")) return "💪 Défi";
+                      return badge;
+                    };
 
-                  return (
-                    <motion.div
-                      key={route.id}
-                      initial={{ opacity: 0, x: -20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.4, delay: idx * 0.05 }}
-                      className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 p-5 rounded-2xl bg-[#F5F1E8]/45 border border-[#1F4D3A]/5 hover:border-[#C9A227]/40 shadow-sm transition-all"
-                    >
-                      <div className="flex items-start gap-4">
-                        <div className="w-14 h-14 rounded-xl bg-white flex items-center justify-center text-2xl shadow-sm border border-stone-200/80 select-none shrink-0">
-                          {route.emoji}
-                        </div>
+                    const translatedRouteDesc = (id: string, defDesc: string) => {
+                      if (language !== 'fr') return defDesc;
+                      if (id === "route-marangu") return "Sommets coniques. Dormez confortablement dans de chaleureux refuges de montagne en dur, à l’abri du vent.";
+                      if (id === "route-rongai") return "Approche par le versant nord sec près de la frontière kenyane, le choix de prédilection pour le camping sauvage.";
+                      if (id === "route-umbwe") return "Une approche raide, rapide et hautement physique pour les grimpeurs aguerris aimant les vrais défis.";
+                      return defDesc;
+                    };
 
-                        <div className="space-y-1">
-                          <div className="flex flex-wrap items-center gap-2">
-                            <h4 className="font-serif text-lg font-bold text-[#1F4D3A]">
-                              {translatedRouteName(route.id, route.name)} ({translatedRouteDuration(route.id, route.duration)})
-                            </h4>
-                            {route.badge && (
-                              <span className="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded bg-[#C96B2C]/10 text-[#C96B2C]">
-                                {translatedRouteBadge(route.badge)}
-                              </span>
-                            )}
+                    return (
+                      <motion.div
+                        key={route.id}
+                        initial={{ opacity: 0, x: -20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.4, delay: idx * 0.05 }}
+                        className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 p-5 rounded-2xl bg-[#F5F1E8]/45 border border-[#1F4D3A]/5 hover:border-[#C9A227]/40 shadow-sm transition-all"
+                      >
+                        <div className="flex items-start gap-4">
+                          <div className="w-14 h-14 rounded-xl bg-white flex items-center justify-center text-2xl shadow-sm border border-stone-200/80 select-none shrink-0">
+                            {route.emoji}
                           </div>
-                          <p className="text-xs text-stone-500 leading-relaxed max-w-md">
-                            {translatedRouteDesc(route.id, route.description)}
-                          </p>
-                        </div>
-                      </div>
 
-                      <div className="sm:text-right w-full sm:w-auto flex sm:flex-col justify-between items-center sm:items-end border-t sm:border-t-0 pt-3 sm:pt-0 border-stone-200/60 mt-2 sm:mt-0 gap-3">
-                        <div>
-                          <span className="block text-[10px] text-stone-400 font-bold uppercase tracking-wider">
-                            {language === 'fr' ? 'À partir de' : 'Prices From'}
-                          </span>
-                          <span className="text-lg font-bold text-[#1F4D3A] font-mono">
-                            ${route.price.toLocaleString()}
-                          </span>
-                          <span className="text-[10px] text-stone-500 font-semibold uppercase tracking-wider ml-1">
-                            {language === 'fr' ? 'par personne' : 'per person'}
-                          </span>
+                          <div className="space-y-1">
+                            <div className="flex flex-wrap items-center gap-2">
+                              <h4 className="font-serif text-lg font-bold text-[#1F4D3A]">
+                                {translatedRouteName(route.id, route.name)} ({translatedRouteDuration(route.id, route.duration)})
+                              </h4>
+                              {route.badge && (
+                                <span className="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded bg-[#C96B2C]/10 text-[#C96B2C]">
+                                  {translatedRouteBadge(route.badge)}
+                                </span>
+                              )}
+                            </div>
+                            <p className="text-xs text-stone-500 leading-relaxed max-w-md">
+                              {translatedRouteDesc(route.id, route.description)}
+                            </p>
+                          </div>
                         </div>
-                        
-                        <a
-                          href={`https://wa.me/255714998804?text=Hello%20Chaka%20Safaris%20and%20Hiking!%20I%20visited%2520your%20website%20and%20want%2520to%20plan%20and%20inquire%20about%20climbing%20via%20the%20${encodeURIComponent(route.name)}.`}
-                          target="_blank"
-                          rel="noreferrer"
-                          className="bg-[#25D366] hover:bg-[#20ba59] active:scale-95 text-white font-bold text-xs uppercase tracking-wider py-1.5 px-3.5 rounded-lg shadow-sm transition-all flex items-center justify-center gap-1.5 cursor-pointer"
-                        >
-                          <WhatsAppIcon className="w-3.5 h-3.5 fill-white" />
-                          <span>{language === 'fr' ? 'S’informer' : 'Inquire'}</span>
-                        </a>
-                      </div>
-                    </motion.div>
-                  );
-                })}
+
+                        <div className="sm:text-right w-full sm:w-auto flex sm:flex-col justify-between items-center sm:items-end border-t sm:border-t-0 pt-3 sm:pt-0 border-stone-200/60 mt-2 sm:mt-0 gap-3">
+                          <span className="text-[#0E251D] text-xs font-mono font-semibold border border-[#0E251D]/15 rounded-lg px-2.5 py-1.5 bg-[#0E251D]/5">
+                            {language === 'fr' ? '🏔️ Ascension Privée' : '🏔️ Private Tour'}
+                          </span>
+                          
+                          <a
+                            href={`https://wa.me/255714998804?text=Hello%20Chaka%5FSafaris%5Fand%5FHiking!%20I%20visited%2520your%20website%20and%20want%2520to%20plan%20and%20inquire%20about%20climbing%20via%20the%20${encodeURIComponent(route.name)}.`}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="bg-[#25D366] hover:bg-[#20ba59] active:scale-95 text-white font-bold text-xs uppercase tracking-wider py-1.5 px-3.5 rounded-lg shadow-sm transition-all flex items-center justify-center gap-1.5 cursor-pointer whitespace-nowrap"
+                          >
+                            <WhatsAppIcon className="w-3.5 h-3.5 fill-white" />
+                            <span>{language === 'fr' ? 'S’informer' : 'Inquire'}</span>
+                          </a>
+                        </div>
+                      </motion.div>
+                    );
+                  })}
+                </div>
               </div>
             </div>
 
@@ -439,13 +520,10 @@ export default function MountainSection({ onOpenBooking }: MountainSectionProps)
                   <div className="border-t border-stone-100 pt-4 flex items-center justify-between mt-auto">
                     <div>
                       <span className="block text-[10px] text-stone-400 font-bold uppercase tracking-wider">
-                        {language === 'fr' ? 'À partir de' : 'Prices From'}
+                        {language === 'fr' ? 'Prestation' : 'Service Type'}
                       </span>
-                      <span className="text-lg font-bold text-[#1F4D3A] font-mono">
-                        $600
-                      </span>
-                      <span className="text-[10px] text-stone-500 font-semibold uppercase tracking-wider ml-1">
-                        {language === 'fr' ? 'par personne' : 'per person'}
+                      <span className="text-sm font-bold text-[#1F4D3A] uppercase tracking-wider">
+                        {language === 'fr' ? 'Privé & Personnalisé' : 'Private & Custom'}
                       </span>
                     </div>
 
@@ -492,13 +570,10 @@ export default function MountainSection({ onOpenBooking }: MountainSectionProps)
                   <div className="border-t border-stone-100 pt-4 flex items-center justify-between mt-auto">
                     <div>
                       <span className="block text-[10px] text-stone-400 font-bold uppercase tracking-wider">
-                        {language === 'fr' ? 'À partir de' : 'Prices From'}
+                        {language === 'fr' ? 'Prestation' : 'Service Type'}
                       </span>
-                      <span className="text-lg font-bold text-[#1F4D3A] font-mono">
-                        $1,000
-                      </span>
-                      <span className="text-[10px] text-stone-500 font-semibold uppercase tracking-wider ml-1">
-                        {language === 'fr' ? 'par personne' : 'per person'}
+                      <span className="text-sm font-bold text-[#1F4D3A] uppercase tracking-wider">
+                        {language === 'fr' ? 'Privé & Personnalisé' : 'Private & Custom'}
                       </span>
                     </div>
 
@@ -533,13 +608,10 @@ export default function MountainSection({ onOpenBooking }: MountainSectionProps)
                     </div>
                     <div className="sm:text-right">
                       <span className="block text-[10px] text-stone-400 font-bold uppercase tracking-wider">
-                        {language === 'fr' ? 'À partir de' : 'Prices From'}
+                        {language === 'fr' ? 'Prestation' : 'Service Type'}
                       </span>
-                      <span className="text-2xl font-bold text-[#1F4D3A] font-mono">
-                        $1,700
-                      </span>
-                      <span className="text-[10px] text-stone-500 font-semibold uppercase tracking-wider ml-1 font-mono">
-                        {language === 'fr' ? 'par personne' : 'per person'}
+                      <span className="text-sm font-bold text-[#1F4D3A] uppercase tracking-wider">
+                        {language === 'fr' ? 'Privé & Personnalisé' : 'Private & Custom'}
                       </span>
                     </div>
                   </div>
@@ -690,10 +762,10 @@ export default function MountainSection({ onOpenBooking }: MountainSectionProps)
                     <div className="flex sm:flex-col items-center sm:items-end justify-between w-full sm:w-auto border-t sm:border-t-0 pt-3 sm:pt-0 border-stone-200/50 mt-2 sm:mt-0 gap-3">
                       <div>
                         <span className="block text-[9px] text-stone-400 font-bold uppercase tracking-wider">
-                          {language === 'fr' ? 'À partir de' : 'Starting from'}
+                          {language === 'fr' ? 'Durée' : 'Duration'}
                         </span>
-                        <span className="text-lg font-bold text-[#1F4D3A] font-mono">
-                          ${trip.price}
+                        <span className="text-sm font-bold text-[#1F4D3A] font-mono">
+                          {language === 'fr' ? '1 Jour' : '1 Day'}
                         </span>
                       </div>
 
@@ -862,7 +934,7 @@ export default function MountainSection({ onOpenBooking }: MountainSectionProps)
                     <span>📅</span> {language === 'fr' ? '3–4 Jours' : '3–4 Days'}
                   </p>
                   <p className="flex items-center gap-1.5 text-stone-600 font-bold">
-                    <span>💰</span> {language === 'fr' ? 'À partir de 1 300 $' : 'Starting from $1,300'}
+                    <span>🌟</span> {language === 'fr' ? 'Prestation Tout Inclus' : 'Fully Inclusive Service'}
                   </p>
                 </div>
               </div>
@@ -905,7 +977,7 @@ export default function MountainSection({ onOpenBooking }: MountainSectionProps)
                     <span>📅</span> {language === 'fr' ? '7–9 Jours' : '7–9 Days'}
                   </p>
                   <p className="flex items-center gap-1.5 text-stone-600 font-bold">
-                    <span>💰</span> {language === 'fr' ? 'À partir de 2 600 $' : 'Starting from $2,600'}
+                    <span>🌟</span> {language === 'fr' ? 'Prestation Tout Inclus' : 'Fully Inclusive Service'}
                   </p>
                 </div>
               </div>
@@ -948,7 +1020,7 @@ export default function MountainSection({ onOpenBooking }: MountainSectionProps)
                     <span>📅</span> {language === 'fr' ? '4–5 Jours' : '4–5 Days'}
                   </p>
                   <p className="flex items-center gap-1.5 text-stone-600 font-bold">
-                    <span>💰</span> {language === 'fr' ? 'À partir de 1 500 $' : 'Starting from $1,500'}
+                    <span>🌟</span> {language === 'fr' ? 'Prestation Tout Inclus' : 'Fully Inclusive Service'}
                   </p>
                 </div>
               </div>
@@ -991,7 +1063,7 @@ export default function MountainSection({ onOpenBooking }: MountainSectionProps)
                     <span>📅</span> {language === 'fr' ? '3–4 Jours' : '3–4 Days'}
                   </p>
                   <p className="flex items-center gap-1.5 text-stone-600 font-bold">
-                    <span>💰</span> {language === 'fr' ? 'À partir de 1 250 $' : 'Starting from $1,250'}
+                    <span>🌟</span> {language === 'fr' ? 'Prestation Tout Inclus' : 'Fully Inclusive Service'}
                   </p>
                 </div>
               </div>

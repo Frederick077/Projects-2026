@@ -247,23 +247,23 @@ export default function MountainPageSection({ onOpenBooking }: MountainPageSecti
                 </ul>
               </div>
 
-              {/* Price Range */}
+              {/* Profile Details */}
               <div className="bg-[#0E251D]/5 dark:bg-white/5 border border-[#0E251D]/10 dark:border-white/10 rounded-xl p-5">
                 <span className="block text-stone-500 dark:text-stone-400 font-mono text-[10px] uppercase tracking-wider font-bold mb-3">
-                  {language === 'fr' ? 'Gamme de Prix' : 'Price Range'}
+                  {language === 'fr' ? 'Détails de l’Ascension' : 'Climb Specifications'}
                 </span>
                 <div className="space-y-2 font-mono">
                   <div className="flex justify-between border-b border-stone-200/55 dark:border-white/10 pb-2 text-sm text-stone-700 dark:text-stone-300">
                     <span className="font-semibold text-[#0E251D] dark:text-[#F5F1E8]">
-                      {language === 'fr' ? 'Économique' : 'Budget'}
+                      {language === 'fr' ? 'Altitude' : 'Elevation'}
                     </span>
-                    <span className="font-bold text-[#9B6338]">$600</span>
+                    <span className="font-bold text-[#9B6338]">4,562m (14,967 ft)</span>
                   </div>
                   <div className="flex justify-between text-sm text-stone-700 dark:text-stone-300 pt-1">
                     <span className="font-semibold text-[#0E251D] dark:text-[#F5F1E8]">
-                      {language === 'fr' ? 'Moyen de gamme' : 'Mid-range'}
+                      {language === 'fr' ? 'Style de Route' : 'Route Style'}
                     </span>
-                    <span className="font-bold text-[#0E251D] dark:text-[#8D5A34]">$800</span>
+                    <span className="font-bold text-[#0E251D] dark:text-[#8D5A34]">{language === 'fr' ? 'Refuges de montagne' : 'Alpine huts'}</span>
                   </div>
                 </div>
               </div>
@@ -296,7 +296,7 @@ export default function MountainPageSection({ onOpenBooking }: MountainPageSecti
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="bg-white dark:bg-[#1a2b23] rounded-2xl border border-stone-200 dark:border-white/10 shadow-sm p-6 sm:p-8 hover:shadow-md transition-all"
+            className="bg-white dark:bg-[#1a2b23] rounded-2xl border border-stone-200/85 dark:border-white/10 shadow-sm p-6 sm:p-8 hover:shadow-md transition-all"
           >
             <div className="border-b border-stone-100 dark:border-white/10 pb-5 mb-6 flex items-center gap-3">
               <span className="text-3xl sm:text-4xl">🥾</span>
@@ -312,9 +312,11 @@ export default function MountainPageSection({ onOpenBooking }: MountainPageSecti
 
             <div className="space-y-4">
               {[
-                { name: language === 'fr' ? "Randonnée au Village de Materuni" : "Materuni Village Hike", icon: "🌿", location: language === 'fr' ? "Chutes de Materuni" : "Materuni Waterfalls", price: "$120" },
-                { name: language === 'fr' ? "Randonnée aux Chutes de Napuru" : "Napuru Waterfalls Hike", icon: "🌄", location: language === 'fr' ? "Chutes de Napuru" : "Napuru Waterfalls", price: "$100" },
-                { name: language === 'fr' ? "Randonnée d'un Jour au Mont Meru" : "Mount Meru Day Hike", icon: "🌳", location: "Mount Meru", price: "$150" }
+                { name: language === 'fr' ? "Randonnée au Village de Materuni" : "Materuni Village Hike", icon: "🌿", location: language === 'fr' ? "Chutes de Materuni" : "Materuni Waterfalls", duration: language === 'fr' ? "1 Jour" : "1 Day" },
+                { name: language === 'fr' ? "Randonnée aux Chutes de Napuru" : "Napuru Waterfalls Hike", icon: "🌄", location: language === 'fr' ? "Chutes de Napuru" : "Napuru Waterfalls", duration: language === 'fr' ? "1 Jour" : "1 Day" },
+                { name: language === 'fr' ? "Randonnée d'un Jour Marangu" : "Marangu Day hiking", icon: "🌋", location: "Marangu Gate", duration: language === 'fr' ? "1 Jour" : "1 Day" },
+                { name: language === 'fr' ? "Randonnée d'un Jour Machame" : "machame day hiking", icon: "🥾", location: "Machame Gate", duration: language === 'fr' ? "1 Jour" : "1 Day" },
+                { name: language === 'fr' ? "Randonnée d'un Jour Lomoshu" : "Lomoshu Day hiking", icon: "🌲", location: "Lomoshu / Lemosho", duration: language === 'fr' ? "1 Jour" : "1 Day" }
               ].map((hike, idx) => (
                 <div key={idx} className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 p-4 rounded-xl bg-stone-50 dark:bg-white/5 border border-stone-200/60 dark:border-white/10 hover:border-[#8D5A34]/40 dark:hover:border-[#8D5A34]/40 shadow-xs transition-colors">
                   <div className="flex items-center gap-3.5">
@@ -333,15 +335,15 @@ export default function MountainPageSection({ onOpenBooking }: MountainPageSecti
                   <div className="flex sm:flex-col items-center sm:items-end justify-between w-full sm:w-auto border-t sm:border-t-0 pt-3 sm:pt-0 border-stone-200/50 dark:border-white/10 mt-2 sm:mt-0 gap-3">
                     <div className="text-left sm:text-right">
                       <span className="block text-[9px] text-[#9B6338] font-bold uppercase tracking-wider font-mono">
-                        {language === 'fr' ? 'Tarif' : 'Price'}
+                        {language === 'fr' ? 'Durée' : 'Duration'}
                       </span>
-                      <span className="text-lg font-bold text-[#0E251D] dark:text-[#8D5A34] font-mono">
-                        {hike.price}
+                      <span className="text-sm font-bold text-[#0E251D] dark:text-[#8D5A34] font-mono">
+                        {hike.duration}
                       </span>
                     </div>
 
                     <a
-                      href={`https://wa.me/255714998804?text=Hi%2520Chaka%2520Safaris%2520and%2520Hiking!%2520I%2520am%2520interested%2520in%2520planning%2520the%2520${encodeURIComponent(hike.name)}.`}
+                      href={`https://wa.me/255714998804?text=Hi%2520Chaka%2520Safaris%2520and%2520Hiking!%2520I%252520am%252520interested%252520in%252520booking%252520the%252520${encodeURIComponent(hike.name)}.`}
                       target="_blank"
                       rel="noreferrer"
                       className="bg-[#25D366] hover:bg-[#20ba59] active:scale-95 text-white font-bold text-xs uppercase tracking-wider py-1.5 px-3.5 rounded-lg shadow-xs transition-all flex items-center justify-center gap-1.5 cursor-pointer"
